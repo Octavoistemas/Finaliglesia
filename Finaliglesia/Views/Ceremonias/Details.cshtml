@@ -1,0 +1,66 @@
+﻿@model Finaliglesia.Models.Ceremonia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ceremonia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCeremoniaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCeremoniaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IglesiasId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IglesiasId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraiosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraiosId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SacramentosId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacturasId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacturasId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SacerdotesId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SacerdotesId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CeremoniaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
