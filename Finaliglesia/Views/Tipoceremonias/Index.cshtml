@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Finaliglesia.Models.Tipoceremonia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Detalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Costo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TipoceremoniaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TipoceremoniaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TipoceremoniaID })
+        </td>
+    </tr>
+}
+
+</table>
