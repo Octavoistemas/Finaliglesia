@@ -243,11 +243,17 @@
     <Compile Include="Migrations\201802062227388_horario.Designer.cs">
       <DependentUpon>201802062227388_horario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802062259091_otro.cs" />
+    <Compile Include="Migrations\201802062259091_otro.Designer.cs">
+      <DependentUpon>201802062259091_otro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Catequista.cs" />
+    <Compile Include="Models\CatequistasModelVista.cs" />
+    <Compile Include="Models\CatequistasVistaModelo.cs" />
     <Compile Include="Models\Ceremonia.cs" />
     <Compile Include="Models\CeremoniasModeloVista.cs" />
     <Compile Include="Models\CeremosniaVistaModelo.cs" />
@@ -425,6 +431,7 @@
     <Content Include="Views\Horarios\Details.cshtml" />
     <Content Include="Views\Horarios\Edit.cshtml" />
     <Content Include="Views\Horarios\Index.cshtml" />
+    <Content Include="Views\Shared\_ListaCatequistas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -455,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802062227388_horario.resx">
       <DependentUpon>201802062227388_horario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802062259091_otro.resx">
+      <DependentUpon>201802062259091_otro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
