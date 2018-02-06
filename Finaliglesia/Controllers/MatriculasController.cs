@@ -38,8 +38,11 @@ namespace Finaliglesia.Controllers
         // GET: Matriculas/Create
         public ActionResult Create()
         {
-            var iglesia = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre");
-            ViewData["catequistaa"] = iglesia;
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            ViewData["tipo"] = iglesia;
+
+            var cate = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre", "Apellido");
+            ViewData["catequistaa"] = cate;
 
             var car = new SelectList(db.Sacramentos.ToList(), "SacramentoID", "DetalleSacramento");
             ViewData["sacramentoo"] = car;
@@ -74,8 +77,11 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Matricula matricula = db.Matriculas.Find(id);
-            var iglesia = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre");
-            ViewData["catequistaa"] = iglesia;
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            ViewData["tipo"] = iglesia;
+
+            var cate = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre", "Apellido");
+            ViewData["catequistaa"] = cate;
 
             var car = new SelectList(db.Sacramentos.ToList(), "SacramentoID", "DetalleSacramento");
             ViewData["sacramentoo"] = car;

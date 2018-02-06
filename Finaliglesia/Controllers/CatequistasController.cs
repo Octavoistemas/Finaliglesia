@@ -70,6 +70,8 @@ namespace Finaliglesia.Controllers
             var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
             ViewData["iglesias"] = iglesias;
             Catequista catequista = db.Catequistas.Find(id);
+            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
+            ViewData["iglesias"] = iglesias;
             if (catequista == null)
             {
                 return HttpNotFound();

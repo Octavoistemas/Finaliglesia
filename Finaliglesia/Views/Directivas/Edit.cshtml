@@ -74,25 +74,25 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IglesiasId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Iglesias", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IglesiasId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.IglesiasId, ViewData["iglesiass"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IglesiasId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CargosId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Cargos", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CargosId, new { htmlAttributes = new { @class = "form-control" } })
+               @Html.DropDownListFor(model => model.CargosId, ViewData["cargos"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CargosId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PeriodosId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Periodos", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PeriodosId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.PeriodosId, ViewData["periodoss"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PeriodosId, "", new { @class = "text-danger" })
             </div>
         </div>
