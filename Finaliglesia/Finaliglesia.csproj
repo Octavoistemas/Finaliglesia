@@ -222,17 +222,39 @@
     <Compile Include="Migrations\201802051726288_primero.Designer.cs">
       <DependentUpon>201802051726288_primero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802061531486_tipoceremonia.cs" />
+    <Compile Include="Migrations\201802061531486_tipoceremonia.Designer.cs">
+      <DependentUpon>201802061531486_tipoceremonia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802061554540_tipo.cs" />
+    <Compile Include="Migrations\201802061554540_tipo.Designer.cs">
+      <DependentUpon>201802061554540_tipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802061557256_tipo2.cs" />
+    <Compile Include="Migrations\201802061557256_tipo2.Designer.cs">
+      <DependentUpon>201802061557256_tipo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802061613441_tipoiglesia.cs" />
+    <Compile Include="Migrations\201802061613441_tipoiglesia.Designer.cs">
+      <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Catequista.cs" />
     <Compile Include="Models\Ceremonia.cs" />
+    <Compile Include="Models\CeremoniasModeloVista.cs" />
+    <Compile Include="Models\CeremosniaVistaModelo.cs" />
     <Compile Include="Models\Directiva.cs" />
+    <Compile Include="Models\DirectivasModelVista.cs" />
+    <Compile Include="Models\DirectivasVistaModelo.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Horario.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Iglesia.cs" />
+    <Compile Include="Models\IglesiasModelVista.cs" />
+    <Compile Include="Models\IglesiasVistaModelo.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Matricula.cs" />
     <Compile Include="Models\Miembro.cs" />
@@ -316,11 +338,6 @@
     <Content Include="Views\Catequistas\Details.cshtml" />
     <Content Include="Views\Catequistas\Edit.cshtml" />
     <Content Include="Views\Catequistas\Index.cshtml" />
-    <Content Include="Views\Ceremonias\Create.cshtml" />
-    <Content Include="Views\Ceremonias\Delete.cshtml" />
-    <Content Include="Views\Ceremonias\Details.cshtml" />
-    <Content Include="Views\Ceremonias\Edit.cshtml" />
-    <Content Include="Views\Ceremonias\Index.cshtml" />
     <Content Include="Views\Directivas\Create.cshtml" />
     <Content Include="Views\Directivas\Delete.cshtml" />
     <Content Include="Views\Directivas\Details.cshtml" />
@@ -376,11 +393,6 @@
     <Content Include="Views\Sacramentos\Details.cshtml" />
     <Content Include="Views\Sacramentos\Edit.cshtml" />
     <Content Include="Views\Sacramentos\Index.cshtml" />
-    <Content Include="Views\Tipoceremonias\Create.cshtml" />
-    <Content Include="Views\Tipoceremonias\Delete.cshtml" />
-    <Content Include="Views\Tipoceremonias\Details.cshtml" />
-    <Content Include="Views\Tipoceremonias\Edit.cshtml" />
-    <Content Include="Views\Tipoceremonias\Index.cshtml" />
     <Content Include="Views\Tipoiglesias\Create.cshtml" />
     <Content Include="Views\Tipoiglesias\Delete.cshtml" />
     <Content Include="Views\Tipoiglesias\Details.cshtml" />
@@ -396,6 +408,17 @@
     <Content Include="Views\UsersAdmin\Details.cshtml" />
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Views\Ceremonias\Create.cshtml" />
+    <Content Include="Views\Ceremonias\Delete.cshtml" />
+    <Content Include="Views\Ceremonias\Details.cshtml" />
+    <Content Include="Views\Ceremonias\Edit.cshtml" />
+    <Content Include="Views\Ceremonias\Index.cshtml" />
+    <Content Include="Views\Tipoceremonias\Create.cshtml" />
+    <Content Include="Views\Tipoceremonias\Delete.cshtml" />
+    <Content Include="Views\Tipoceremonias\Details.cshtml" />
+    <Content Include="Views\Tipoceremonias\Edit.cshtml" />
+    <Content Include="Views\Tipoceremonias\Index.cshtml" />
+    <Content Include="Views\Shared\_ListaIglesias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -411,6 +434,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802051726288_primero.resx">
       <DependentUpon>201802051726288_primero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061531486_tipoceremonia.resx">
+      <DependentUpon>201802061531486_tipoceremonia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061554540_tipo.resx">
+      <DependentUpon>201802061554540_tipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061557256_tipo2.resx">
+      <DependentUpon>201802061557256_tipo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061613441_tipoiglesia.resx">
+      <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
