@@ -38,6 +38,14 @@ namespace Finaliglesia.Controllers
         // GET: Directivas/Create
         public ActionResult Create()
         {
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            ViewData["iglesiass"] = iglesia;
+
+            var car = new SelectList(db.Cargos.ToList(), "cargoID", "Nombre");
+            ViewData["cargos"] = car;
+      
+            var perio = new SelectList(db.Periodos.ToList(), "PeriodoID", "Detalle");
+            ViewData["periodoss"] = perio;
             return View();
         }
 

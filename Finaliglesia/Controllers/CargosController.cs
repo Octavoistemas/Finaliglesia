@@ -38,6 +38,7 @@ namespace Finaliglesia.Controllers
         // GET: Cargos/Create
         public ActionResult Create()
         {
+          
             return View();
         }
 
