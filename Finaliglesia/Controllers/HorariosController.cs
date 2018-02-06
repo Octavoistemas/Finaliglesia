@@ -46,7 +46,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HorarioID,Email,Fecha,Hora")] Horario horario)
+        public ActionResult Create([Bind(Include = "HorarioID,Fecha,Hora")] Horario horario)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HorarioID,Email,Fecha,Hora")] Horario horario)
+        public ActionResult Edit([Bind(Include = "HorarioID,Fecha,Hora")] Horario horario)
         {
             if (ModelState.IsValid)
             {

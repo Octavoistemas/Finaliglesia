@@ -19,7 +19,11 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Directivas.ToList());
         }
-
+        public ActionResult ListaDirectivas()
+        {
+            DirectivasVistaModelo lista = new DirectivasVistaModelo();
+            return PartialView("_ListaDirectivas", lista.Directivas().ToList());
+        }
         // GET: Directivas/Details/5
         public ActionResult Details(int? id)
         {

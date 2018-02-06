@@ -1,87 +1,21 @@
-﻿@model IEnumerable<Finaliglesia.Models.Directiva>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Apellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Celular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IglesiasId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CargosId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PeriodosId)
-        </th>
-        <th></th>
-    </tr>
+<p>
+    <div id="directivasdiv"></div>
+</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(document).ready(
+        $("#directivasdiv").load('Directivas/ListaDirectivas')
+        );
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Celular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IglesiasId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CargosId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PeriodosId)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.DirectivaID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.DirectivaID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.DirectivaID })
-        </td>
-    </tr>
+    </script>
 }
-
-</table>

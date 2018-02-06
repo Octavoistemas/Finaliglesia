@@ -7,13 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Fecha)
         </th>
@@ -26,18 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Hora)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.HorarioID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.HorarioID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.HorarioID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.HorarioID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HorarioID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HorarioID })
         </td>
     </tr>
 }

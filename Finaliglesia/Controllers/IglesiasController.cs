@@ -73,9 +73,11 @@ namespace Finaliglesia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Iglesia iglesia = db.Iglesias.Find(id);
             var tipo = new SelectList(db.TipoIglesias.ToList(), "TipoiglesiaID", "Detalle");
             ViewData["tipo"] = tipo;
+
+            Iglesia iglesia = db.Iglesias.Find(id);
+           
             if (iglesia == null)
             {
                 return HttpNotFound();

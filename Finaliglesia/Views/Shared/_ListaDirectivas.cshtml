@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Finaliglesia.Models.DirectivasModelVista>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Cedula
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Dirección
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Celular
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>
+            Iglesia
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Periodo
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Directivas", new { id = item.DirectivaID }, null)
+                @Html.ActionLink("Detalles", "Index", "Directivas", new { id = item.DirectivaID })
+                @Html.ActionLink("Eliminar", "Delete", "Directivas", new { id = item.DirectivaID })
+            </td>
+        </tr>
+    }
+
+</table>

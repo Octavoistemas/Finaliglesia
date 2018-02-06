@@ -19,7 +19,7 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Catequistas.ToList());
         }
-
+        
         // GET: Catequistas/Details/5
         public ActionResult Details(int? id)
         {
@@ -67,6 +67,8 @@ namespace Finaliglesia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
+            ViewData["iglesias"] = iglesias;
             Catequista catequista = db.Catequistas.Find(id);
             if (catequista == null)
             {

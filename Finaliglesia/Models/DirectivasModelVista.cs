@@ -15,7 +15,7 @@ namespace Finaliglesia.Models
         public string Telefono { get; set; }
         public string Celular { get; set; }
         public string email { get; set; }
-        public string Iglesia { get; set; }
+        public string Iglesias { get; set; }
         public string Cargo { get; set; }
         public string Periodo { get; set; }
     }
