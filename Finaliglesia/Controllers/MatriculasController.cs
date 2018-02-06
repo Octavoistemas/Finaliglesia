@@ -38,6 +38,14 @@ namespace Finaliglesia.Controllers
         // GET: Matriculas/Create
         public ActionResult Create()
         {
+            var iglesia = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre");
+            ViewData["catequistaa"] = iglesia;
+
+            var car = new SelectList(db.Sacramentos.ToList(), "SacramentoID", "DetalleSacramento");
+            ViewData["sacramentoo"] = car;
+
+            var perio = new SelectList(db.Periodos.ToList(), "PeriodoID", "Detalle");
+            ViewData["periodoss"] = perio;
             return View();
         }
 
