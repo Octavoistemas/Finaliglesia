@@ -5,17 +5,18 @@
 }
 
 <h2>Index</h2>
-
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
 <p>
    <div id="iglesisdiv"></div>
 </p>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 <script>
     $(document).ready(
-        $("#iglesisdiv").load('Home/ListaIglesias')
+        $("#iglesisdiv").load('Iglesias/ListaIglesias')
         );
 
     </script>

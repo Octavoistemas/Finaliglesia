@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Finaliglesia.Models.CatequistasModelVista>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Cedula
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Dirección
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Celular
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>
+            Iglesia
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Catequistas", new { id = item.CatequistaID }, null)
+                @Html.ActionLink("Detalles", "Index", "Catequistas", new { id = item.CatequistaID })
+                @Html.ActionLink("Eliminar", "Delete", "Catequistas", new { id = item.CatequistaID })
+            </td>
+        </tr>
+    }
+
+</table>
+

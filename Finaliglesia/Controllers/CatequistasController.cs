@@ -19,7 +19,11 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Catequistas.ToList());
         }
-        
+        public ActionResult ListaCatequistas()
+        {
+            CatequistasVistaModelo lista = new CatequistasVistaModelo();
+            return PartialView("_ListaCatequistas", lista.Catequistas().ToList());
+        }
         // GET: Catequistas/Details/5
         public ActionResult Details(int? id)
         {
