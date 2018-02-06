@@ -8,8 +8,7 @@ namespace Finaliglesia.Models
     public class Ceremonia
     {
         public int  CeremoniaID { get; set; }
-        public int TipoCeremoniaID { get; set; }
-        public ICollection<Tipoceremonia> TipoCeremonia { get; set; }
+        
         public int IglesiasId { get; set; }
         public ICollection<Iglesia> Iglesias { get; set; }
         public int HoraiosId { get; set; }
@@ -20,7 +19,8 @@ namespace Finaliglesia.Models
         public ICollection<Factura> Facturas { get; set; }
         public int SacerdotesId { get; set; }
         public ICollection<Sacerdote> Sacerdotes { get; set; }
-
+        public int MiembroCeremoniaId { get; set; }
+        public ICollection<MiembroCeremonia> MiembroCeremonia { get; set; }
 
 
     }

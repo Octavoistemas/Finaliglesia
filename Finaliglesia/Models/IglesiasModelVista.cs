@@ -5,12 +5,11 @@ using System.Web;
 
 namespace Finaliglesia.Models
 {
-    public class Iglesia
+    public class IglesiasModelVista
     {
-        public int IglesiaID { get; set; }
+        public int IdIglesia { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
-        public int TipoIglesiasId { get; set; }
-        public ICollection<Tipoiglesia> TipoIglesias { get; set; }
+        public string Tipo { get; set; }
     }
 }

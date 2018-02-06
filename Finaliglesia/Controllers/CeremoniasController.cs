@@ -38,6 +38,10 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias/Create
         public ActionResult Create()
         {
+            var lista = new SelectList(from c in db.TipoCeremonias select c, "TipoceremoniaID", "Detalle");
+            ViewData["Tipo"] = lista;
+            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
+            ViewData["iglesias"] = iglesias;
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CeremoniaID,TipoCeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId")] Ceremonia ceremonia)
+        public ActionResult Create([Bind(Include = "CeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId, Tipoceremonia_TipoceremoniaID")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +82,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CeremoniaID,TipoCeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId")] Ceremonia ceremonia)
+        public ActionResult Edit([Bind(Include = "CeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {
@@ -114,22 +118,6 @@ namespace Finaliglesia.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //public ActionResult BusquedaSacramento(String id_Sacrammento)
-        //{
-        //    ViewBag.id_Sacrammento = new SelectList(db.Sacramentos, "SacramentoID", "DetalleSacramento");
-        //    //var Sacramento = from s in db.Sacramentos select s;
-        //    //if(!String.IsNullOrEmpty(Nombre_Sacramento))
-        //    //{
-        //    //    Sacramento = Sacramento.Where(j => j.DetalleSacramento.Contains(Nombre_Sacramento));
-        //    //}
-        //    //return View(Sacramento);
-        //    if (!String.IsNullOrEmpty(id_Sacrammento))
-        //    {
-        //        int sc = Convert.ToInt32("id_Sacrammento");
-                
-        //    }
-        //}
 
         protected override void Dispose(bool disposing)
         {

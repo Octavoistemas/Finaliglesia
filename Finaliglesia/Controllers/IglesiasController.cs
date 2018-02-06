@@ -28,6 +28,7 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Iglesia iglesia = db.Iglesias.Find(id);
+
             if (iglesia == null)
             {
                 return HttpNotFound();
@@ -38,6 +39,8 @@ namespace Finaliglesia.Controllers
         // GET: Iglesias/Create
         public ActionResult Create()
         {
+            var tipo = new SelectList(db.TipoIglesias.ToList(), "TipoiglesiaID", "Detalle");
+            ViewData["tipo"] = tipo;
             return View();
         }
 
@@ -66,6 +69,8 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Iglesia iglesia = db.Iglesias.Find(id);
+            var tipo = new SelectList(db.TipoIglesias.ToList(), "TipoiglesiaID", "Detalle");
+            ViewData["tipo"] = tipo;
             if (iglesia == null)
             {
                 return HttpNotFound();
