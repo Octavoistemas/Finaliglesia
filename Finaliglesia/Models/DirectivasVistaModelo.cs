@@ -20,7 +20,12 @@ namespace Finaliglesia.Models
                            select new DirectivasModelVista
                            {
                                DirectivaID = d.DirectivaID,
-                               d.
+                               Cedula=d.Cedula,
+                               Nombre=d.Nombre,
+                               Apellido=d.Apellido,
+                               Direccion=d.Direccion,
+                               Telefono=d.Telefono,
+
 
                            };
             return consulta.ToList();
