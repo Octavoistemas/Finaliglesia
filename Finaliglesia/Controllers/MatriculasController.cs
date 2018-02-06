@@ -74,6 +74,14 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Matricula matricula = db.Matriculas.Find(id);
+            var iglesia = new SelectList(db.Catequistas.ToList(), "CatequistaID", "Nombre");
+            ViewData["catequistaa"] = iglesia;
+
+            var car = new SelectList(db.Sacramentos.ToList(), "SacramentoID", "DetalleSacramento");
+            ViewData["sacramentoo"] = car;
+
+            var perio = new SelectList(db.Periodos.ToList(), "PeriodoID", "Detalle");
+            ViewData["periodoss"] = perio;
             if (matricula == null)
             {
                 return HttpNotFound();

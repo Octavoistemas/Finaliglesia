@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CatequistasId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CatequistasId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.CatequistasId, ViewData["catequistaa"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CatequistasId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SacramentosId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SacramentosId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.SacramentosId, ViewData["sacramentoo"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SacramentosId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PeriodosId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PeriodosId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.PeriodosId, ViewData["periodoss"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PeriodosId, "", new { @class = "text-danger" })
             </div>
         </div>
