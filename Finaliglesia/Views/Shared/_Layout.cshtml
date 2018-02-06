@@ -52,9 +52,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>@Html.ActionLink("Catequistas", "Index", "Catequistas")</li>
-                                <li>@Html.ActionLink("Estudiantes", "Index", "Miembros")</li>
-                                <li>@Html.ActionLink("Padres", "Index", "Miembros")</li>
-                                <li>@Html.ActionLink("Padrinos", "Index", "Miembros")</li>
+                                <li>@Html.ActionLink("Personas", "Index", "Miembros")</li>
                             </ul>
                         </li>
 
@@ -68,13 +66,32 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    @Html.ActionLink("Directivas", "Index", "Carritos")
+                                    @Html.ActionLink("Nuevo", "Index", "Iglesias")
+
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Directivas", "Index", "Directivas")
                                     
                                 </li>
                                 <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
                             </ul>
                         </li>
                             
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Tesorero"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                                Matriculas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("Nuevo", "Create", "Matriculas")
+                                </li>
+                            </ul>
+                        </li>
+
                     }
                 </ul>
 
