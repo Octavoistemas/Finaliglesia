@@ -115,6 +115,22 @@ namespace Finaliglesia.Controllers
             return RedirectToAction("Index");
         }
 
+        //public ActionResult BusquedaSacramento(String id_Sacrammento)
+        //{
+        //    ViewBag.id_Sacrammento = new SelectList(db.Sacramentos, "SacramentoID", "DetalleSacramento");
+        //    //var Sacramento = from s in db.Sacramentos select s;
+        //    //if(!String.IsNullOrEmpty(Nombre_Sacramento))
+        //    //{
+        //    //    Sacramento = Sacramento.Where(j => j.DetalleSacramento.Contains(Nombre_Sacramento));
+        //    //}
+        //    //return View(Sacramento);
+        //    if (!String.IsNullOrEmpty(id_Sacrammento))
+        //    {
+        //        int sc = Convert.ToInt32("id_Sacrammento");
+                
+        //    }
+        //}
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
