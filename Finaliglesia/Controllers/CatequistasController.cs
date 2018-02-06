@@ -38,6 +38,8 @@ namespace Finaliglesia.Controllers
         // GET: Catequistas/Create
         public ActionResult Create()
         {
+            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
+            ViewData["iglesias"] = iglesias;
             return View();
         }
 
