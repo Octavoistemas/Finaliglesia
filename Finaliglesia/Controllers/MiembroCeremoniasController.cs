@@ -38,6 +38,11 @@ namespace Finaliglesia.Controllers
         // GET: MiembroCeremonias/Create
         public ActionResult Create()
         {
+            var miembros = new SelectList(db.Miembros.ToList(), "MiembroID", "Nombre");
+            ViewData["tipo"] = miembros;
+
+            var cere = new SelectList(db.Ceremonias.ToList(), "CeremoniaID");
+            ViewData["catequistaa"] = cere;
             return View();
         }
 
@@ -66,6 +71,12 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             MiembroCeremonia miembroCeremonia = db.MiembrosCeremonias.Find(id);
+            var miembros = new SelectList(db.Miembros.ToList(), "MiembroID", "Nombre");
+            ViewData["miembro"] = miembros;
+
+            var cere = new SelectList(db.Ceremonias.ToList(), "CeremoniaID");
+            ViewData["ceremo"] = cere;
+            return View();
             if (miembroCeremonia == null)
             {
                 return HttpNotFound();
