@@ -68,6 +68,8 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Catequista catequista = db.Catequistas.Find(id);
+            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
+            ViewData["iglesias"] = iglesias;
             if (catequista == null)
             {
                 return HttpNotFound();

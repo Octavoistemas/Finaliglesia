@@ -74,6 +74,14 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Directiva directiva = db.Directivas.Find(id);
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            ViewData["iglesiass"] = iglesia;
+
+            var car = new SelectList(db.Cargos.ToList(), "cargoID", "Nombre");
+            ViewData["cargos"] = car;
+
+            var perio = new SelectList(db.Periodos.ToList(), "PeriodoID", "Detalle");
+            ViewData["periodoss"] = perio;
             if (directiva == null)
             {
                 return HttpNotFound();
