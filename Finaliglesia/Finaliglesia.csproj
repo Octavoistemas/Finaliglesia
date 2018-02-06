@@ -209,6 +209,7 @@
     <Compile Include="Controllers\MiembroMatriculasController.cs" />
     <Compile Include="Controllers\MiembrosController.cs" />
     <Compile Include="Controllers\PeriodosController.cs" />
+    <Compile Include="Controllers\prueba.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SacerdotesController.cs" />
     <Compile Include="Controllers\SacramentosController.cs" />
@@ -237,6 +238,10 @@
     <Compile Include="Migrations\201802061613441_tipoiglesia.cs" />
     <Compile Include="Migrations\201802061613441_tipoiglesia.Designer.cs">
       <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802062227388_horario.cs" />
+    <Compile Include="Migrations\201802062227388_horario.Designer.cs">
+      <DependentUpon>201802062227388_horario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,11 +353,6 @@
     <Content Include="Views\Facturas\Details.cshtml" />
     <Content Include="Views\Facturas\Edit.cshtml" />
     <Content Include="Views\Facturas\Index.cshtml" />
-    <Content Include="Views\Horarios\Create.cshtml" />
-    <Content Include="Views\Horarios\Delete.cshtml" />
-    <Content Include="Views\Horarios\Details.cshtml" />
-    <Content Include="Views\Horarios\Edit.cshtml" />
-    <Content Include="Views\Horarios\Index.cshtml" />
     <Content Include="Views\Iglesias\Create.cshtml" />
     <Content Include="Views\Iglesias\Delete.cshtml" />
     <Content Include="Views\Iglesias\Details.cshtml" />
@@ -419,6 +419,12 @@
     <Content Include="Views\Tipoceremonias\Edit.cshtml" />
     <Content Include="Views\Tipoceremonias\Index.cshtml" />
     <Content Include="Views\Shared\_ListaIglesias.cshtml" />
+    <Content Include="Views\Shared\_ListaDirectivas.cshtml" />
+    <Content Include="Views\Horarios\Create.cshtml" />
+    <Content Include="Views\Horarios\Delete.cshtml" />
+    <Content Include="Views\Horarios\Details.cshtml" />
+    <Content Include="Views\Horarios\Edit.cshtml" />
+    <Content Include="Views\Horarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802061613441_tipoiglesia.resx">
       <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802062227388_horario.resx">
+      <DependentUpon>201802062227388_horario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
