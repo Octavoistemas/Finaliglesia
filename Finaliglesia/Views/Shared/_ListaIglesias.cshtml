@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Finaliglesia.Models.IglesiasModelVista>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre de Iglesia
+        </th>
+        <th>
+            Direccion
+        </th>
+        <th>
+            Tipo de Iglesia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdIglesia }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdIglesia }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdIglesia })
+            </td>
+        </tr>
+    }
+
+</table>

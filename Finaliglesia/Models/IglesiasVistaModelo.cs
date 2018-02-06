@@ -11,38 +11,19 @@ namespace Finaliglesia.Models
         public IglesiasVistaModelo() {
             db = new ApplicationDbContext();
         }
-
-        public List<IglesiasModelVista> ListaIglesias { get; set; }
-
-        public void Iglesias()
+        
+        public List<IglesiasModelVista> Iglesias()
         {
             var consulta = from i in db.Iglesias
                            join t in db.TipoIglesias on i.TipoIglesiasId equals t.TipoiglesiaID
-                           select new
+                           select new IglesiasModelVista
                            {
-                               i.IglesiaID,
-                               i.Nombre,
-                               i.Direccion,
-                               t.Detalle
+                              IdIglesia =  i.IglesiaID,
+                              Nombre= i.Nombre,
+                              Direccion= i.Direccion,
+                               Tipo = t.Detalle
                            };
-            ListaIglesias.Clear();
-            if (consulta != null)
-            {
-                var ligkesias = consulta.ToList();
-                foreach (var item in ligkesias)
-                {
-                    ListaIglesias.Add(new IglesiasModelVista
-                    {
-                        IdIglesia = item.IglesiaID,
-                        Nombre = item.Nombre,
-                        Direccion = item.Direccion,
-                        Tipo = item.Detalle
-                    }
-                        );
-                }
-            }
-
-
+            return consulta.ToList();
         }
     }
 }

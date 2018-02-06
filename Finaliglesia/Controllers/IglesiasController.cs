@@ -20,6 +20,11 @@ namespace Finaliglesia.Controllers
             return View(db.Iglesias.ToList());
         }
 
+        public ActionResult ListaIglesias()
+        {
+            IglesiasVistaModelo lista = new IglesiasVistaModelo();
+            return PartialView("_ListaIglesias", lista.Iglesias().ToList());
+        }
         // GET: Iglesias/Details/5
         public ActionResult Details(int? id)
         {
