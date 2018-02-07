@@ -319,3 +319,4 @@ C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaligl
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipoiglesia.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.horario.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.otro.resources
+C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Miembros.resources
