@@ -18,39 +18,122 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Rol, ViewData["tipoRol"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label("miembros", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MiembrosId, ViewData["miembro"] as SelectList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MiembrosId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        
 
         <div class="form-group">
             @Html.Label("Ceremonias", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CeremoniasId, ViewData["ceremo"] as SelectList, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CeremoniasId, ViewData["ceremonia"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CeremoniasId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
-        </div>
+       
     </div>
 }
+<form class="form-inline">
+    <div class="form-group">
+        @Html.Label("Cedula", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Cedula" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Nombre" required class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Apellido", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Apellido" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Direccion", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Direccion" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Telefono", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Telefono" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Celular", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Celular" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Fecha de Nacimiento", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Fecha" class="form-control datepicker" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Genero", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="cars" id="genero" class="form-control" required>
+                <option value=""></option>
+                 <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Correo Electronico", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="email" class="form-control" />
+        </div>
+    </div>
 
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="button" id="agregar" value="Agregar" class="btn btn-primary form-control" />
+        </div>
+    </div>
+</form>
+<div id="miembros"></div>
+
+
+
+
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Guardar" id="enviar" class="btn btn-default" />
+    </div>
+</div>
 <div>
     @Html.ActionLink("Regresar", "Index")
 </div>
 
 @section Scripts {
+@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+<script src="@Url.Content("~/Scripts/Listas.js")"></script>
+<script src="@Url.Content("~/Scripts/FuncionesCliente.js")"></script>
+
+<script>
+    $(".datepicker").datepicker({
+        format: 'yyyy/mm/dd',
+        autoclose: true,
+        lannguaje:'es'
+    });
+</script>
+    <script>
+        $('#agregar').click(agregarmiembros_click);
+        $('#enviar').click(crear_Click);
+           </script>
 }

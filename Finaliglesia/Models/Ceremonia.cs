@@ -14,9 +14,7 @@ namespace Finaliglesia.Models
         public ICollection<Sacramento> Sacramentos { get; set; }     
         public int SacerdotesId { get; set; }
         public ICollection<Sacerdote> Sacerdotes { get; set; }
-        public int MiembroCeremoniaId { get; set; }
-        public ICollection<MiembroCeremonia> MiembroCeremonia { get; set; }
-
+      
 
     }
 }

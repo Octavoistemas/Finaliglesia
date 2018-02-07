@@ -36,13 +36,29 @@ namespace Finaliglesia.Controllers
         }
 
         // GET: MiembroCeremonias/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            string Cer = Request.Form["id"];
             var miembros = new SelectList(db.Miembros.ToList(), "MiembroID", "Nombre");
             ViewData["tipo"] = miembros;
+            var tipoRol = new SelectList(new[] {
+                new { ID="Sacramentado", Name="Sacramentado"},
+                new { ID="Padre", Name="Padre"},
+                new { ID="Madre", Name="Madre"},
+                new { ID="Padrino", Name="Padrino"},
+                new { ID="Madrina", Name="Madrina"},
+            }, "ID", "Name");
+            ViewData["tipoRol"] = tipoRol;
 
-            var cere = new SelectList(db.Ceremonias.ToList(), "CeremoniaID");
-            ViewData["catequistaa"] = cere;
+            var ceremonia = new SelectList(from c in db.Ceremonias
+                            where c.CeremoniaID.Equals(id)
+                            select new
+                            {
+                               c.CeremoniaID,
+                               Dato = c.Fecha + " "+ c.Hora 
+                            }, "CeremoniaID", "Dato");
+
+            ViewData["ceremonia"] = ceremonia;
             return View();
         }
 
@@ -51,17 +67,21 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MiembroCeremoniaID,Rol,MiembrosId,CeremoniasId")] MiembroCeremonia miembroCeremonia)
+        public JsonResult Create(MiembroCeremonia miembroCeremonia)
         {
             if (ModelState.IsValid)
             {
                 db.MiembrosCeremonias.Add(miembroCeremonia);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+               
+                return Json(true);
             }
 
-            return View(miembroCeremonia);
+            return Json(false);
         }
+       
+
 
         // GET: MiembroCeremonias/Edit/5
         public ActionResult Edit(int? id)
