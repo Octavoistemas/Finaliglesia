@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
 namespace Finaliglesia.Models
 {
     public class Catequista
@@ -15,6 +15,7 @@ namespace Finaliglesia.Models
         public string Telefono { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
+        [Display(Name = "Iglesia")]
         public int IglesiasId { get; set; }
         public ICollection<Iglesia> Iglesias { get; set; }
 
