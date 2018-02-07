@@ -311,3 +311,5 @@ C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo2.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipoiglesia.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.horario.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.otro.resources
