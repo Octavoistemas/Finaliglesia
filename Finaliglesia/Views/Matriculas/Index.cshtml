@@ -1,51 +1,23 @@
-﻿@model IEnumerable<Finaliglesia.Models.Matricula>
+﻿
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IglesiasId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CatequistasId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SacramentosId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PeriodosId)
-        </th>
-        <th></th>
-    </tr>
+<p>
+    <div id="matridiv"></div>
+</p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IglesiasId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CatequistasId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SacramentosId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PeriodosId)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.MatriculaID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.MatriculaID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.MatriculaID })
-        </td>
-    </tr>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(document).ready(
+        $("#matridiv").load('Matriculas/ListaMatriculas')
+        );
+
+    </script>
 }
-
-</table>

@@ -17,7 +17,7 @@ namespace Finaliglesia.Models
         public string genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string email { get; set; }
-        public int CeremoniasId { get; set; }
-        public ICollection<Ceremonia> Ceremonias { get; set; }
+        //public int CeremoniasId { get; set; }
+        //public ICollection<Ceremonia> Ceremonias { get; set; }
     }
 }

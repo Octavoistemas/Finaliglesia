@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Finaliglesia.Models.MatriculasModelVista>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Iglesia
+        </th>
+        <th>
+            Catequista
+        </th>
+        <th>
+            Sacrameto
+        </th>
+        <th>
+            Periodo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catequista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacramento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Matriculas", new { id = item.MatriculaID }, null)
+                @Html.ActionLink("Detalles", "Index", "Matriculas", new { id = item.MatriculaID })
+                @Html.ActionLink("Eliminar", "Delete", "Matriculas", new { id = item.MatriculaID})
+            </td>
+        </tr>
+    }
+
+</table>

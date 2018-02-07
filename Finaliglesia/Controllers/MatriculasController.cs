@@ -19,7 +19,11 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Matriculas.ToList());
         }
-
+        public ActionResult ListaMatriculas()
+        {
+            MatriculasVistaModelo lista = new MatriculasVistaModelo();
+            return PartialView("_ListaMatriculas", lista.Matriculas().ToList());
+        }
         // GET: Matriculas/Details/5
         public ActionResult Details(int? id)
         {

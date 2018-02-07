@@ -19,7 +19,11 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Ceremonias.ToList());
         }
-
+        public ActionResult ListaCeremonia()
+        {
+            CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
+            return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
+        }
         // GET: Ceremonias/Details/5
         public ActionResult Details(int? id)
         {

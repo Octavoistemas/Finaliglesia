@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Finaliglesia.Models.CeremoniasModeloVista>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tipo de Ceremonia
+        </th>
+        <th>
+            Iglesia
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Hora
+        </th>
+        <th>
+            Sacramento
+        </th>
+        <th>
+            Sacerdote
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCeremonia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacramentos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacerdotes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Ceremonias", new { id = item.CeremoniaID }, null)
+                @Html.ActionLink("Detalles", "Index", "Ceremonias", new { id = item.CeremoniaID })
+                @Html.ActionLink("Eliminar", "Delete", "Ceremonias", new { id = item.CeremoniaID })
+            </td>
+        </tr>
+    }
+
+</table>

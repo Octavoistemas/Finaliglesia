@@ -13,16 +13,21 @@ namespace Finaliglesia.Controllers
         {
             return View();
         }
-        //public ActionResult ListaIglesias()
-        //{
-        //    IglesiasVistaModelo lista = new IglesiasVistaModelo();
-        //    return PartialView("_ListaIglesias", lista.Iglesias().ToList());
-        //}
-        //public ActionResult ListaDirectivas()
-        //{
-        //    DirectivasVistaModelo lista = new DirectivasVistaModelo();
-        //    return PartialView("_ListaDirectivas", lista.Directivas().ToList());
-        //}
+        public ActionResult ListaIglesias()
+        {
+            IglesiasVistaModelo lista = new IglesiasVistaModelo();
+            return PartialView("_ListaIglesias", lista.Iglesias().ToList());
+        }
+        public ActionResult ListaDirectivas()
+        {
+            DirectivasVistaModelo lista = new DirectivasVistaModelo();
+            return PartialView("_ListaDirectivas", lista.Directivas().ToList());
+        }
+        public ActionResult ListaCatequistas()
+        {
+            CatequistasVistaModelo lista = new CatequistasVistaModelo();
+            return PartialView("_ListaCatequistas", lista.Catequistas().ToList());
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -4,17 +4,17 @@
 }
 
 <h2>Index</h2>
-<p>
+@*<p>
     @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+</p>*@
 <p>
-    <div id="ceremoniasdiv"></div>
+    <div id="ceremodiv"></div>
 </p>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
     $(document).ready(
-        $("#ceremoniasdiv").load('Catequistas/ListaCatequista')
+        $("#ceremodiv").load('Catequistas/ListaCatequistas')
         );
     </script>
 }
