@@ -12,6 +12,7 @@ using Finaliglesia.Models;
 
 namespace Finaliglesia.Controllers
 {
+    //
     [Authorize]
     public class AccountController : Controller
     {
