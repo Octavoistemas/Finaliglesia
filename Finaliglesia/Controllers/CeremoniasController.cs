@@ -17,12 +17,26 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias
         public ActionResult Index()
         {
+            var curas = new SelectList(from s in db.Sacerdotes
+                                       select new {
+                                           Nombre = s.NombreSacerdote + " "+ s.ApellidoSacerdote,
+                                           s.SacerdoteID
+                                       }
+                                       , "SacerdoteID", "Nombre");
+            ViewBag.SacerdoteID = curas.ToList();
             return View(db.Ceremonias.ToList());
         }
-        public ActionResult ListaCeremonia()
+        public JsonResult SacertodesDisponibles(DateTime fecha, string hora)
         {
-            CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
-            return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
+
+            var SacerdotesId = from c in db.Ceremonias
+                           where c.Fecha.Equals(fecha)
+                           select new
+                           {
+                               Nombre = (from s in c.Sacerdotes select s.NombreSacerdote + " " + s.ApellidoSacerdote),
+                               SacerdoteId = (from s in c.Sacerdotes select s.SacerdoteID)
+                           };
+            return Json(new SelectList(SacerdotesId, "SacerdoteID", "Nombre"));
         }
         // GET: Ceremonias/Details/5
         public ActionResult Details(int? id)
@@ -42,10 +56,6 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias/Create
         public ActionResult Create()
         {
-            var lista = new SelectList(from c in db.TipoCeremonias select c, "TipoceremoniaID", "Detalle");
-            ViewData["Tipo"] = lista;
-            var iglesias = new SelectList(from i in db.Iglesias select i, "IglesiaID", "Nombre");
-            ViewData["iglesias"] = iglesias;
             return View();
         }
 
@@ -54,7 +64,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId, Tipoceremonia_TipoceremoniaID")] Ceremonia ceremonia)
+        public ActionResult Create([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,SacerdotesId,MiembroCeremoniaId")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +96,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CeremoniaID,IglesiasId,HoraiosId,SacramentosId,FacturasId,SacerdotesId")] Ceremonia ceremonia)
+        public ActionResult Edit([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,SacerdotesId,MiembroCeremoniaId")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {

@@ -34,7 +34,6 @@ namespace Finaliglesia.Models
         public DbSet<Miembro> Miembros { get; set; }
         public DbSet<Tipoiglesia> TipoIglesias { get; set; }
         public DbSet<Sacerdote> Sacerdotes { get; set; }
-        public DbSet<Horario> Horarios { get; set; }
         public DbSet<Tipoceremonia> TipoCeremonias { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<Sacramento> Sacramentos { get; set; }

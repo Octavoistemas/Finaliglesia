@@ -19,7 +19,7 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Sacerdotes.ToList());
         }
-
+       
         // GET: Sacerdotes/Details/5
         public ActionResult Details(int? id)
         {

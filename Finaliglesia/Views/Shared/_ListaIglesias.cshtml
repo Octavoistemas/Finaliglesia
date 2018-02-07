@@ -28,9 +28,9 @@
                 @Html.DisplayFor(modelItem => item.Tipo)
             </td>
             <td>
-                @Html.ActionLink("Editar","Edit", "Iglesias", new { id = item.IdIglesia },null) 
-                @Html.ActionLink("Detalles", "Index", "Iglesias", new { id = item.IdIglesia }) 
-                @Html.ActionLink("Eliminar", "Delete", "Iglesias", new { id = item.IdIglesia })
+                @Html.ActionLink("Editar","Edit", "Iglesias", new { id = item.IdIglesia },new { @class="btn btn-default"}) 
+                @Html.ActionLink("Detalles", "Index", "Iglesias", new { id = item.IdIglesia }, new { @class = "btn btn-default" }) 
+                @Html.ActionLink("Eliminar", "Delete", "Iglesias", new { id = item.IdIglesia }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

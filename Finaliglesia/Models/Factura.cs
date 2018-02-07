@@ -10,6 +10,8 @@ namespace Finaliglesia.Models
         public int FacturaID { get; set; }
         public string Numero { get; set; }
         public string DetalleFactura { get; set; }
+        public int CeremoniaId { get; set; }
+        public ICollection<Ceremonia> Ceremonias { get; set; }
 
     }
 }

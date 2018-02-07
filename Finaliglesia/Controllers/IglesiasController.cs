@@ -20,11 +20,8 @@ namespace Finaliglesia.Controllers
             return View(db.Iglesias.ToList());
         }
 
-        public ActionResult ListaIglesias()
-        {
-            IglesiasVistaModelo lista = new IglesiasVistaModelo();
-            return PartialView("_ListaIglesias", lista.Iglesias().ToList());
-        }
+
+
         // GET: Iglesias/Details/5
         public ActionResult Details(int? id)
         {
@@ -33,7 +30,6 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Iglesia iglesia = db.Iglesias.Find(id);
-
             if (iglesia == null)
             {
                 return HttpNotFound();
@@ -44,8 +40,6 @@ namespace Finaliglesia.Controllers
         // GET: Iglesias/Create
         public ActionResult Create()
         {
-            var tipo = new SelectList(db.TipoIglesias.ToList(), "TipoiglesiaID", "Detalle");
-            ViewData["tipo"] = tipo;
             return View();
         }
 
@@ -54,7 +48,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId")] Iglesia iglesia)
+        public ActionResult Create([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId,ceremoniaId")] Iglesia iglesia)
         {
             if (ModelState.IsValid)
             {
@@ -73,11 +67,7 @@ namespace Finaliglesia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var tipo = new SelectList(db.TipoIglesias.ToList(), "TipoiglesiaID", "Detalle");
-            ViewData["tipo"] = tipo;
-
             Iglesia iglesia = db.Iglesias.Find(id);
-           
             if (iglesia == null)
             {
                 return HttpNotFound();
@@ -90,7 +80,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId")] Iglesia iglesia)
+        public ActionResult Edit([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId,ceremoniaId")] Iglesia iglesia)
         {
             if (ModelState.IsValid)
             {

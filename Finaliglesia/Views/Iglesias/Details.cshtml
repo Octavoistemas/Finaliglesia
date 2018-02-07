@@ -1,10 +1,10 @@
 ﻿@model Finaliglesia.Models.Iglesia
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Details";
 }
 
-<h2>Detalles</h2>
+<h2>Details</h2>
 
 <div>
     <h4>Iglesia</h4>
@@ -34,9 +34,17 @@
             @Html.DisplayFor(model => model.TipoIglesiasId)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ceremoniaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ceremoniaId)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.IglesiaID }) |
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IglesiaID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

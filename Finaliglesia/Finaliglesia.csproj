@@ -202,7 +202,6 @@
     <Compile Include="Controllers\DirectivasController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HorariosController.cs" />
     <Compile Include="Controllers\IglesiasController.cs" />
     <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="Controllers\MiembroCeremoniasController.cs" />
@@ -250,37 +249,49 @@
     <Compile Include="Migrations\201802071623273_Miembros.Designer.cs">
       <DependentUpon>201802071623273_Miembros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802071632313_facturaceremonia.cs" />
+    <Compile Include="Migrations\201802071632313_facturaceremonia.Designer.cs">
+      <DependentUpon>201802071632313_facturaceremonia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802071713368_Horarios.cs" />
+    <Compile Include="Migrations\201802071713368_Horarios.Designer.cs">
+      <DependentUpon>201802071713368_Horarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802071723558_Cereminias.cs" />
+    <Compile Include="Migrations\201802071723558_Cereminias.Designer.cs">
+      <DependentUpon>201802071723558_Cereminias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Models\AccountViewModels.cs" />
-    <Compile Include="Migrations\Models\AdminViewModel.cs" />
-    <Compile Include="Migrations\Models\Cargo.cs" />
-    <Compile Include="Migrations\Models\Catequista.cs" />
-    <Compile Include="Migrations\Models\CatequistasModelVista.cs" />
-    <Compile Include="Migrations\Models\CatequistasVistaModelo.cs" />
-    <Compile Include="Migrations\Models\Ceremonia.cs" />
-    <Compile Include="Migrations\Models\CeremoniasModeloVista.cs" />
-    <Compile Include="Migrations\Models\CeremoniasVistaModelo.cs" />
-    <Compile Include="Migrations\Models\Directiva.cs" />
-    <Compile Include="Migrations\Models\DirectivasModelVista.cs" />
-    <Compile Include="Migrations\Models\DirectivasVistaModelo.cs" />
-    <Compile Include="Migrations\Models\Factura.cs" />
-    <Compile Include="Migrations\Models\Horario.cs" />
-    <Compile Include="Migrations\Models\IdentityModels.cs" />
-    <Compile Include="Migrations\Models\Iglesia.cs" />
-    <Compile Include="Migrations\Models\IglesiasModelVista.cs" />
-    <Compile Include="Migrations\Models\IglesiasVistaModelo.cs" />
-    <Compile Include="Migrations\Models\ManageViewModels.cs" />
-    <Compile Include="Migrations\Models\Matricula.cs" />
-    <Compile Include="Migrations\Models\MatriculasModelVista.cs" />
-    <Compile Include="Migrations\Models\MatriculasVistaModelo.cs" />
-    <Compile Include="Migrations\Models\Miembro.cs" />
-    <Compile Include="Migrations\Models\MiembroCeremonia.cs" />
-    <Compile Include="Migrations\Models\MiembroMatricula.cs" />
-    <Compile Include="Migrations\Models\Periodo.cs" />
-    <Compile Include="Migrations\Models\Sacerdote.cs" />
-    <Compile Include="Migrations\Models\Sacramento.cs" />
-    <Compile Include="Migrations\Models\Tipoceremonia.cs" />
-    <Compile Include="Migrations\Models\Tipoiglesia.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\Catequista.cs" />
+    <Compile Include="Models\CatequistasModelVista.cs" />
+    <Compile Include="Models\CatequistasVistaModelo.cs" />
+    <Compile Include="Models\Ceremonia.cs" />
+    <Compile Include="Models\CeremoniasModeloVista.cs" />
+    <Compile Include="Models\CeremoniasVistaModelo.cs" />
+    <Compile Include="Models\Directiva.cs" />
+    <Compile Include="Models\DirectivasModelVista.cs" />
+    <Compile Include="Models\DirectivasVistaModelo.cs" />
+    <Compile Include="Models\Factura.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Iglesia.cs" />
+    <Compile Include="Models\IglesiasModelVista.cs" />
+    <Compile Include="Models\IglesiasVistaModelo.cs" />
+    <Compile Include="Models\item.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Matricula.cs" />
+    <Compile Include="Models\MatriculasModelVista.cs" />
+    <Compile Include="Models\MatriculasVistaModelo.cs" />
+    <Compile Include="Models\Miembro.cs" />
+    <Compile Include="Models\MiembroCeremonia.cs" />
+    <Compile Include="Models\MiembroMatricula.cs" />
+    <Compile Include="Models\Periodo.cs" />
+    <Compile Include="Models\Sacerdote.cs" />
+    <Compile Include="Models\Sacramento.cs" />
+    <Compile Include="Models\Tipoceremonia.cs" />
+    <Compile Include="Models\Tipoiglesia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -364,11 +375,6 @@
     <Content Include="Views\Facturas\Details.cshtml" />
     <Content Include="Views\Facturas\Edit.cshtml" />
     <Content Include="Views\Facturas\Index.cshtml" />
-    <Content Include="Views\Iglesias\Create.cshtml" />
-    <Content Include="Views\Iglesias\Delete.cshtml" />
-    <Content Include="Views\Iglesias\Details.cshtml" />
-    <Content Include="Views\Iglesias\Edit.cshtml" />
-    <Content Include="Views\Iglesias\Index.cshtml" />
     <Content Include="Views\Matriculas\Create.cshtml" />
     <Content Include="Views\Matriculas\Delete.cshtml" />
     <Content Include="Views\Matriculas\Details.cshtml" />
@@ -419,11 +425,6 @@
     <Content Include="Views\UsersAdmin\Details.cshtml" />
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
-    <Content Include="Views\Ceremonias\Create.cshtml" />
-    <Content Include="Views\Ceremonias\Delete.cshtml" />
-    <Content Include="Views\Ceremonias\Details.cshtml" />
-    <Content Include="Views\Ceremonias\Edit.cshtml" />
-    <Content Include="Views\Ceremonias\Index.cshtml" />
     <Content Include="Views\Tipoceremonias\Create.cshtml" />
     <Content Include="Views\Tipoceremonias\Delete.cshtml" />
     <Content Include="Views\Tipoceremonias\Details.cshtml" />
@@ -431,14 +432,19 @@
     <Content Include="Views\Tipoceremonias\Index.cshtml" />
     <Content Include="Views\Shared\_ListaIglesias.cshtml" />
     <Content Include="Views\Shared\_ListaDirectivas.cshtml" />
-    <Content Include="Views\Horarios\Create.cshtml" />
-    <Content Include="Views\Horarios\Delete.cshtml" />
-    <Content Include="Views\Horarios\Details.cshtml" />
-    <Content Include="Views\Horarios\Edit.cshtml" />
-    <Content Include="Views\Horarios\Index.cshtml" />
     <Content Include="Views\Shared\_ListaCatequistas.cshtml" />
     <Content Include="Views\Shared\_ListaMatriculas.cshtml" />
     <Content Include="Views\Shared\_ListaCeremonias.cshtml" />
+    <Content Include="Views\Ceremonias\Create.cshtml" />
+    <Content Include="Views\Ceremonias\Delete.cshtml" />
+    <Content Include="Views\Ceremonias\Details.cshtml" />
+    <Content Include="Views\Ceremonias\Edit.cshtml" />
+    <Content Include="Views\Ceremonias\Index.cshtml" />
+    <Content Include="Views\Iglesias\Create.cshtml" />
+    <Content Include="Views\Iglesias\Delete.cshtml" />
+    <Content Include="Views\Iglesias\Details.cshtml" />
+    <Content Include="Views\Iglesias\Edit.cshtml" />
+    <Content Include="Views\Iglesias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -475,6 +481,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802071623273_Miembros.resx">
       <DependentUpon>201802071623273_Miembros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802071632313_facturaceremonia.resx">
+      <DependentUpon>201802071632313_facturaceremonia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802071713368_Horarios.resx">
+      <DependentUpon>201802071713368_Horarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802071723558_Cereminias.resx">
+      <DependentUpon>201802071723558_Cereminias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,23 +1,57 @@
-﻿
+﻿@model IEnumerable<Finaliglesia.Models.Ceremonia>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
-<p>
-    <div id="ceremdiv"></div>
-</p>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script>
-    $(document).ready(
-        $("#ceremdiv").load('Ceremonias/ListaCeremonia')
-        );
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SacramentosId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SacerdotesId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiembroCeremoniaId)
+        </th>
+        <th></th>
+    </tr>
 
-    </script>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SacramentosId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SacerdotesId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiembroCeremoniaId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CeremoniaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CeremoniaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CeremoniaID })
+        </td>
+    </tr>
 }
+
+</table>

@@ -12,5 +12,7 @@ namespace Finaliglesia.Models
         public string Direccion { get; set; }
         public int TipoIglesiasId { get; set; }
         public ICollection<Tipoiglesia> TipoIglesias { get; set; }
+        public int ceremoniaId { get; set; }
+        public ICollection<Ceremonia> Ceremonias { get; set; }
     }
 }
