@@ -16,7 +16,10 @@ namespace Finaliglesia.Models
         [Display(Name = "Sacerdotes")]
         public int SacerdotesId { get; set; }
         public ICollection<Sacerdote> Sacerdotes { get; set; }
-      
+        [Display(Name = "Iglesia")]
+        public int iglesiaid { get; set; }
+        public ICollection<Iglesia> iglesias { get; set; }
+
 
     }
 }

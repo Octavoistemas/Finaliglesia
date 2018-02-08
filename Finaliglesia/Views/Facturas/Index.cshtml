@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.DetalleFactura)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.FacturaID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.FacturaID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.FacturaID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.FacturaID }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.FacturaID }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.FacturaID }, new { @class = "btn btn-default" })
         </td>
     </tr>
 }

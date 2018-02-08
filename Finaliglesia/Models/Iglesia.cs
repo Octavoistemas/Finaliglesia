@@ -14,8 +14,6 @@ namespace Finaliglesia.Models
         [Display(Name = "Tipo")]
         public int TipoIglesiasId { get; set; }
         public ICollection<Tipoiglesia> TipoIglesias { get; set; }
-        [Display(Name = "Ceremonia")]
-        public int ceremoniaId { get; set; }
-        public ICollection<Ceremonia> Ceremonias { get; set; }
+       
     }
 }

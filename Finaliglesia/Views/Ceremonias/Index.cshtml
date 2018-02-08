@@ -23,7 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SacerdotesId)
         </th>
-       
+        <th>
+            @Html.DisplayNameFor(model => model.iglesiaid)
+        </th>
         <th></th>
     </tr>
 
@@ -41,12 +43,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.SacerdotesId)
         </td>
-       
+        <td>
+            @Html.DisplayFor(modelItem => item.iglesiaid)
+        </td>
         <td>
             @Html.ActionLink("Agregar Participantes", "Create","MiembroCeremonias", new { id = item.CeremoniaID }, new { @class = "btn btn-default" })  |
-            @Html.ActionLink("Edit", "Edit", new { id=item.CeremoniaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CeremoniaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CeremoniaID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CeremoniaID },new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CeremoniaID },new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CeremoniaID },new { @class = "btn btn-default" })
         </td>
     </tr>
 }

@@ -48,7 +48,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId,ceremoniaId")] Iglesia iglesia)
+        public ActionResult Create([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId")] Iglesia iglesia)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId,ceremoniaId")] Iglesia iglesia)
+        public ActionResult Edit([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId")] Iglesia iglesia)
         {
             if (ModelState.IsValid)
             {
