@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Finaliglesia.Models
 {
@@ -10,8 +11,10 @@ namespace Finaliglesia.Models
         public int IglesiaID { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
+        [Display(Name = "Tipo")]
         public int TipoIglesiasId { get; set; }
         public ICollection<Tipoiglesia> TipoIglesias { get; set; }
+        [Display(Name = "Ceremonia")]
         public int ceremoniaId { get; set; }
         public ICollection<Ceremonia> Ceremonias { get; set; }
     }
