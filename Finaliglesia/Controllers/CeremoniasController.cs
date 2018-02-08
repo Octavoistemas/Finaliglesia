@@ -21,6 +21,11 @@ namespace Finaliglesia.Controllers
             
             return View(db.Ceremonias.ToList());
         }
+        public ActionResult ListaCeremonias()
+        {
+            CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
+            return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
+        }
         public JsonResult SacertodesDisponibles(DateTime fecha, string hora)
         {
 

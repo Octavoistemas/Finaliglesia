@@ -9,50 +9,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hora)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SacramentosId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SacerdotesId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iglesiaid)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SacramentosId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SacerdotesId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iglesiaid)
-        </td>
-        <td>
-            @Html.ActionLink("Agregar Participantes", "Create","MiembroCeremonias", new { id = item.CeremoniaID }, new { @class = "btn btn-default" })  |
-            @Html.ActionLink("Edit", "Edit", new { id=item.CeremoniaID },new { @class = "btn btn-default" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CeremoniaID },new { @class = "btn btn-default" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CeremoniaID },new { @class = "btn btn-default" })
-        </td>
-    </tr>
+<div id="ceremonias2"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+   
+<script>
+    $(document).ready(
+        $("#ceremonias2").load('/MiembroCeremonias/ListaCeremonias')
+        );
+
+</script>
 }
-
-</table>

@@ -19,7 +19,7 @@ namespace Finaliglesia.Controllers
         {
             return View(db.MiembrosCeremonias.ToList());
         }
-
+       
         // GET: MiembroCeremonias/Details/5
         public ActionResult Details(int? id)
         {
@@ -61,7 +61,11 @@ namespace Finaliglesia.Controllers
             ViewData["ceremonia"] = ceremonia;
             return View();
         }
-
+        public ActionResult ListaCeremonias()
+        {
+            CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
+            return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
+        }
         // POST: MiembroCeremonias/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.

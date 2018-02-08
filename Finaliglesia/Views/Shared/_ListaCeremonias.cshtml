@@ -4,9 +4,6 @@
 <table class="table">
     <tr>
         <th>
-            Tipo de Ceremonia
-        </th>
-        <th>
             Iglesia
         </th>
         <th>
@@ -28,9 +25,6 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoCeremonia)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Iglesias)
             </td>
             <td>
@@ -46,7 +40,8 @@
                 @Html.DisplayFor(modelItem => item.Sacerdotes)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Ceremonias", new { id = item.CeremoniaID }, null)
+                @Html.ActionLink("Agregar Participantes", "Create", "MiembroCeremonias", new { id = item.CeremoniaID }, new { @class= "btn btn-default"})
+                
                 @Html.ActionLink("Detalles", "Index", "Ceremonias", new { id = item.CeremoniaID })
                 @Html.ActionLink("Eliminar", "Delete", "Ceremonias", new { id = item.CeremoniaID })
             </td>
