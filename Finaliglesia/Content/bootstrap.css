@@ -1128,7 +1128,6 @@ pre code {
   }
   .col-md-10 {
     width: 83.33333333333334%;
-    text-align:right;
   }
   .col-md-11 {
     width: 91.66666666666666%;
@@ -2221,10 +2220,6 @@ fieldset[disabled] .btn-danger.active {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c;
-}
-.centrarbt
-{
- text-align:right;
 }
 
 .btn-success:hover,
