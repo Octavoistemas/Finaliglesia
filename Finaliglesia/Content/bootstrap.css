@@ -741,6 +741,10 @@ pre {
 pre.prettyprint {
   margin-bottom: 20px;
 }
+centarimg {
+  margin-bottom: 20px;
+  text-align:center;
+}
 
 pre code {
   padding: 0;
