@@ -326,3 +326,5 @@ C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaligl
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Cereminias2.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.miembrosceremosnias.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Iglesias.resources
+C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Ceremonias.resources
+C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.ultimo.resources

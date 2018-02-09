@@ -18,7 +18,7 @@ namespace Finaliglesia.Controllers
         public ActionResult Index()
         {
             
-            
+
             return View(db.Ceremonias.ToList());
         }
         public ActionResult ListaCeremonias()
@@ -56,7 +56,9 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias/Create
         public ActionResult Create()
         {
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
             
+
             ViewBag.SacerdotesID = new SelectList(from s in db.Sacerdotes
                                                   select new
                                                   {
@@ -75,6 +77,7 @@ namespace Finaliglesia.Controllers
             var sacra = new SelectList(from s in db.Sacramentos select s, "SacramentoID", "DetalleSacramento");
             ViewData["Sacra"] = sacra;
             ViewData["Horas"] = horas;
+            ViewData["iglesiass"] = iglesia;
             return View();
         }
 

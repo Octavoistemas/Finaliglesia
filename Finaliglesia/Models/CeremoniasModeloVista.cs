@@ -7,8 +7,7 @@ namespace Finaliglesia.Models
 {
     public class CeremoniasModeloVista
     {
-        public int CeremoniaID { get; set; }   
-        public string Iglesias { get; set; }    
+        public int CeremoniaID { get; set; }     
         public DateTime fecha { get; set; }
         public string hora { get; set; }
         public string  Sacramentos { get; set; }

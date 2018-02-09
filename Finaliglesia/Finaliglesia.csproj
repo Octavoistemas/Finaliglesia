@@ -273,6 +273,14 @@
     <Compile Include="Migrations\201802080511437_Iglesias.Designer.cs">
       <DependentUpon>201802080511437_Iglesias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802081810170_Ceremonias.cs" />
+    <Compile Include="Migrations\201802081810170_Ceremonias.Designer.cs">
+      <DependentUpon>201802081810170_Ceremonias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802081905414_ultimo.cs" />
+    <Compile Include="Migrations\201802081905414_ultimo.Designer.cs">
+      <DependentUpon>201802081905414_ultimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -336,13 +344,10 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Scripts\FuncionesCliente.js" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -612,6 +617,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802080511437_Iglesias.resx">
       <DependentUpon>201802080511437_Iglesias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802081810170_Ceremonias.resx">
+      <DependentUpon>201802081810170_Ceremonias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802081905414_ultimo.resx">
+      <DependentUpon>201802081905414_ultimo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
