@@ -5,8 +5,8 @@ using System.Web;
 
 namespace Finaliglesia.Models
 {
-    public class BuscarCeremonia
+    public class BuscarSacerdote
     {
-        public string BuscarNombre { get; set; }
+        public string BuscarCedula { get; set; }
     }
 }

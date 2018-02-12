@@ -303,16 +303,8 @@ C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csprojResolveAssemblyReference.cache
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.primero.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.pdb
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipoceremonia.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo2.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipoiglesia.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.horario.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.otro.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipoceremonia.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.tipo2.resources
@@ -328,3 +320,5 @@ C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaligl
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Iglesias.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Ceremonias.resources
 C:\Users\Johersito\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.ultimo.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Nose.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache

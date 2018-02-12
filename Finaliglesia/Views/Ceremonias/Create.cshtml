@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Sacramentos", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SacramentosId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.SacramentosId, ViewData["Sacra"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SacramentosId, "", new { @class = "text-danger" })
@@ -39,19 +39,29 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Sacerdotes Disponibles", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TipoCeremoniasId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SacerdotesID", null, new { @class = "form-control" } )
+                @Html.DropDownListFor(model => model.TipoCeremoniasId, ViewData["tceremons"] as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoCeremoniasId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SacerdotesId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SacerdotesID", null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SacerdotesId, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.iglesiaid, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("iglesiass", null, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.iglesiaid, ViewData["iglesiass"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.iglesiaid, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -64,8 +74,8 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 @section Scripts{
-@Scripts.Render("/bundles/jqueryval")
-<script>
+    @Scripts.Render("/bundles/jqueryval")
+    <script>
     $(".datepicker").datepicker({
         format: 'yyyy/mm/dd',
         autoclose: true,

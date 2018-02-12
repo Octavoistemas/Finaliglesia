@@ -12,6 +12,7 @@ namespace Finaliglesia.Models
         public string hora { get; set; }
         public string  Sacramentos { get; set; }
         public string Sacerdotes { get; set; }
-
+        public string TipoCeremonia { get; set; }
+        public string Iglesia { get; set; }
     }
 }

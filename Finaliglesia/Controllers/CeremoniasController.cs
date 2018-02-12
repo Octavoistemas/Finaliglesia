@@ -17,8 +17,6 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias
         public ActionResult Index()
         {
-            
-
             return View(db.Ceremonias.ToList());
         }
         public ActionResult ListaCeremonias()
@@ -26,16 +24,17 @@ namespace Finaliglesia.Controllers
             CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
             return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
         }
-        public JsonResult SacertodesDisponibles(DateTime fecha, string hora)
+        public JsonResult SacertodesDisponibles()
         {
 
-            var SacerdotesId = from c in db.Ceremonias
-                           where c.Fecha.Equals(fecha)
-                           select new
-                           {
-                               Nombre = (from s in c.Sacerdotes select s.NombreSacerdote + " " + s.ApellidoSacerdote),
-                               SacerdoteId = (from s in c.Sacerdotes select s.SacerdoteID)
-                           };
+            var SacerdotesId = (from c in db.Ceremonias
+                               join s in db.Sacerdotes on c.SacramentosId equals s.SacerdoteID
+                               where !c.SacerdotesId.Equals(s.SacerdoteID)
+                                select new
+                               {
+                                   Nombre = s.NombreSacerdote+""+s.ApellidoSacerdote,
+                                   SacerdoteId = s.SacerdoteID
+                               }).Distinct().ToList();
             return Json(new SelectList(SacerdotesId, "SacerdoteID", "Nombre"));
         }
         // GET: Ceremonias/Details/5
@@ -57,7 +56,7 @@ namespace Finaliglesia.Controllers
         public ActionResult Create()
         {
             var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
-            
+            var tipoceremonia = new SelectList(db.TipoCeremonias.ToList(), "TipoceremoniaID", "Detalle");
 
             ViewBag.SacerdotesID = new SelectList(from s in db.Sacerdotes
                                                   select new
@@ -78,6 +77,7 @@ namespace Finaliglesia.Controllers
             ViewData["Sacra"] = sacra;
             ViewData["Horas"] = horas;
             ViewData["iglesiass"] = iglesia;
+            ViewData["tceremons"] = tipoceremonia;
             return View();
         }
 
@@ -86,7 +86,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,SacerdotesId,iglesiaid")] Ceremonia ceremonia)
+        public ActionResult Create([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,TipoCeremoniasId,SacerdotesId,iglesiaid")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,SacerdotesId,iglesiaid")] Ceremonia ceremonia)
+        public ActionResult Edit([Bind(Include = "CeremoniaID,Fecha,Hora,SacramentosId,TipoCeremoniasId,SacerdotesId,iglesiaid")] Ceremonia ceremonia)
         {
             if (ModelState.IsValid)
             {

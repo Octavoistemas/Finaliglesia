@@ -19,7 +19,28 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Sacerdotes.ToList());
         }
-       
+        public ActionResult Buscar()
+        {
+            BuscarSacerdote busca = new BuscarSacerdote();
+
+            return View(busca);
+        }
+        public ActionResult BuscaCedula(BuscarSacerdote model)
+        {
+            if (ModelState.IsValid)
+            {
+                BusquedaSacerdoteModeloVista Cedula = new BusquedaSacerdoteModeloVista();
+                Cedula.SacerdoteConsultas(model.BuscarCedula);
+                return PartialView("_SacerdotesBuscar", Cedula.SacerdoteLista);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return View("Buscar", model);
+            }
+
+
+        }
         // GET: Sacerdotes/Details/5
         public ActionResult Details(int? id)
         {

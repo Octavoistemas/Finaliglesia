@@ -217,73 +217,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802051726288_primero.cs" />
-    <Compile Include="Migrations\201802051726288_primero.Designer.cs">
-      <DependentUpon>201802051726288_primero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802061531486_tipoceremonia.cs" />
-    <Compile Include="Migrations\201802061531486_tipoceremonia.Designer.cs">
-      <DependentUpon>201802061531486_tipoceremonia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802061554540_tipo.cs" />
-    <Compile Include="Migrations\201802061554540_tipo.Designer.cs">
-      <DependentUpon>201802061554540_tipo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802061557256_tipo2.cs" />
-    <Compile Include="Migrations\201802061557256_tipo2.Designer.cs">
-      <DependentUpon>201802061557256_tipo2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802061613441_tipoiglesia.cs" />
-    <Compile Include="Migrations\201802061613441_tipoiglesia.Designer.cs">
-      <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802062227388_horario.cs" />
-    <Compile Include="Migrations\201802062227388_horario.Designer.cs">
-      <DependentUpon>201802062227388_horario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802062259091_otro.cs" />
-    <Compile Include="Migrations\201802062259091_otro.Designer.cs">
-      <DependentUpon>201802062259091_otro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802071623273_Miembros.cs" />
-    <Compile Include="Migrations\201802071623273_Miembros.Designer.cs">
-      <DependentUpon>201802071623273_Miembros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802071632313_facturaceremonia.cs" />
-    <Compile Include="Migrations\201802071632313_facturaceremonia.Designer.cs">
-      <DependentUpon>201802071632313_facturaceremonia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802071713368_Horarios.cs" />
-    <Compile Include="Migrations\201802071713368_Horarios.Designer.cs">
-      <DependentUpon>201802071713368_Horarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802071723558_Cereminias.cs" />
-    <Compile Include="Migrations\201802071723558_Cereminias.Designer.cs">
-      <DependentUpon>201802071723558_Cereminias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802072047284_Cereminias2.cs" />
-    <Compile Include="Migrations\201802072047284_Cereminias2.Designer.cs">
-      <DependentUpon>201802072047284_Cereminias2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802072129329_miembrosceremosnias.cs" />
-    <Compile Include="Migrations\201802072129329_miembrosceremosnias.Designer.cs">
-      <DependentUpon>201802072129329_miembrosceremosnias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802080511437_Iglesias.cs" />
-    <Compile Include="Migrations\201802080511437_Iglesias.Designer.cs">
-      <DependentUpon>201802080511437_Iglesias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802081810170_Ceremonias.cs" />
-    <Compile Include="Migrations\201802081810170_Ceremonias.Designer.cs">
-      <DependentUpon>201802081810170_Ceremonias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802081905414_ultimo.cs" />
-    <Compile Include="Migrations\201802081905414_ultimo.Designer.cs">
-      <DependentUpon>201802081905414_ultimo.cs</DependentUpon>
+    <Compile Include="Migrations\201802092329275_Nose.cs" />
+    <Compile Include="Migrations\201802092329275_Nose.Designer.cs">
+      <DependentUpon>201802092329275_Nose.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\BuscarSacerdote.cs" />
+    <Compile Include="Models\BusquedaSacerdote.cs" />
+    <Compile Include="Models\BusquedaSacerdoteModeloVista.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Catequista.cs" />
     <Compile Include="Models\CatequistasModelVista.cs" />
@@ -553,16 +496,18 @@
     <Content Include="Views\Shared\_ListaCatequistas.cshtml" />
     <Content Include="Views\Shared\_ListaMatriculas.cshtml" />
     <Content Include="Views\Shared\_ListaCeremonias.cshtml" />
-    <Content Include="Views\Ceremonias\Create.cshtml" />
-    <Content Include="Views\Ceremonias\Delete.cshtml" />
-    <Content Include="Views\Ceremonias\Details.cshtml" />
-    <Content Include="Views\Ceremonias\Edit.cshtml" />
-    <Content Include="Views\Ceremonias\Index.cshtml" />
     <Content Include="Views\Iglesias\Create.cshtml" />
     <Content Include="Views\Iglesias\Delete.cshtml" />
     <Content Include="Views\Iglesias\Details.cshtml" />
     <Content Include="Views\Iglesias\Edit.cshtml" />
     <Content Include="Views\Iglesias\Index.cshtml" />
+    <Content Include="Views\Ceremonias\Create.cshtml" />
+    <Content Include="Views\Ceremonias\Delete.cshtml" />
+    <Content Include="Views\Ceremonias\Details.cshtml" />
+    <Content Include="Views\Ceremonias\Edit.cshtml" />
+    <Content Include="Views\Ceremonias\Index.cshtml" />
+    <Content Include="Views\Sacerdotes\_SacerdotesBuscar.cshtml" />
+    <Content Include="Views\Sacerdotes\Buscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -576,53 +521,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802051726288_primero.resx">
-      <DependentUpon>201802051726288_primero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802061531486_tipoceremonia.resx">
-      <DependentUpon>201802061531486_tipoceremonia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802061554540_tipo.resx">
-      <DependentUpon>201802061554540_tipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802061557256_tipo2.resx">
-      <DependentUpon>201802061557256_tipo2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802061613441_tipoiglesia.resx">
-      <DependentUpon>201802061613441_tipoiglesia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802062227388_horario.resx">
-      <DependentUpon>201802062227388_horario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802062259091_otro.resx">
-      <DependentUpon>201802062259091_otro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802071623273_Miembros.resx">
-      <DependentUpon>201802071623273_Miembros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802071632313_facturaceremonia.resx">
-      <DependentUpon>201802071632313_facturaceremonia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802071713368_Horarios.resx">
-      <DependentUpon>201802071713368_Horarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802071723558_Cereminias.resx">
-      <DependentUpon>201802071723558_Cereminias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802072047284_Cereminias2.resx">
-      <DependentUpon>201802072047284_Cereminias2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802072129329_miembrosceremosnias.resx">
-      <DependentUpon>201802072129329_miembrosceremosnias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802080511437_Iglesias.resx">
-      <DependentUpon>201802080511437_Iglesias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802081810170_Ceremonias.resx">
-      <DependentUpon>201802081810170_Ceremonias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802081905414_ultimo.resx">
-      <DependentUpon>201802081905414_ultimo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802092329275_Nose.resx">
+      <DependentUpon>201802092329275_Nose.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

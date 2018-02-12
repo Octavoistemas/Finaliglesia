@@ -17,6 +17,12 @@ function agregarmiembros_click() {
         });
         $('#Telefono').val('').focus();
         $('#Nombre').val('');
+        $('#Apellido').val('').focus();
+        $('#Nombre').val('');
+        $('#Telefono').val('').focus();
+        $('#Nombre').val('');
+        $('#Telefono').val('').focus();
+        $('#Nombre').val('');
         
     //falta codigo para limpiar cajas
         MostrarMiembros(true);

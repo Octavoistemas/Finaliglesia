@@ -46,7 +46,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TipoceremoniaID,Detalle,Costo,CeremoniaId")] Tipoceremonia tipoceremonia)
+        public ActionResult Create([Bind(Include = "TipoceremoniaID,Detalle,Costo")] Tipoceremonia tipoceremonia)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TipoceremoniaID,Detalle,Costo,CeremoniaId")] Tipoceremonia tipoceremonia)
+        public ActionResult Edit([Bind(Include = "TipoceremoniaID,Detalle,Costo")] Tipoceremonia tipoceremonia)
         {
             if (ModelState.IsValid)
             {

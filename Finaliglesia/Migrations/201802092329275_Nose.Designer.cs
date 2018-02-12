@@ -7,13 +7,13 @@ namespace Finaliglesia.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class tipo2 : IMigrationMetadata
+    public sealed partial class Nose : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(tipo2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Nose));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802061557256_tipo2"; }
+            get { return "201802092329275_Nose"; }
         }
         
         string IMigrationMetadata.Source
