@@ -11,10 +11,18 @@ namespace Finaliglesia.Models
         [Display(Name = "RoleName")]
         public string Name { get; set; }
     }
-
     public class EditUserViewModel
     {
         public string Id { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "Nombre de Usuario")]
+
+        public string UserName { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "Nombre Completo")]
+        public string NombreCompleto { get; set; }
 
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "Email")]

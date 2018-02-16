@@ -48,7 +48,7 @@
             <td>
                 @Html.ActionLink("Agregar Participantes", "Create", "MiembroCeremonias", new { id = item.CeremoniaID }, new { @class= "btn btn-default"})
                 
-                @Html.ActionLink("Detalles", "Index", "Ceremonias", new { id = item.CeremoniaID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Editar", "Edit", "Ceremonias", new { id = item.CeremoniaID }, new { @class = "btn btn-default" })
                 @Html.ActionLink("Eliminar", "Delete", "Ceremonias", new { id = item.CeremoniaID }, new { @class = "btn btn-default" })
             </td>
         </tr>

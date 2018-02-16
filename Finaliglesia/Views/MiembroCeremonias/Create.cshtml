@@ -15,17 +15,7 @@
         <h4>MiembroCeremonia</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Rol, ViewData["tipoRol"] as SelectList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        
-
-        <div class="form-group">
+          <div class="form-group">
             @Html.Label("Ceremonias", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.CeremoniasId, ViewData["ceremonia"] as SelectList, new { @class = "form-control" })
@@ -96,16 +86,26 @@
             <input type="text" id="email" class="form-control" />
         </div>
     </div>
-
-   
-
     <div class="form-group">
+        @Html.Label("Rol", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input type="button" id="agregar" value="Agregar" class="btn btn-primary form-control" />
+            <select name="cars" id="Rol" class="form-control" required>
+                <option value=""></option>
+                <option value="Sacramentado">Sacramentado</option>
+                <option value="Padrino">Padrino</option>
+                <option value="Madrina">Madrina</option>
+                <option value="Padre">Padre</option>
+                <option value="Madre">Madre</option>
+            </select>
         </div>
-   </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="button" id="agregar" value="Agregar" class="btn btn-primary form-control" />
+            </div>
+        </div>
 
-   <hr />
+        <hr />
 </form>
 <div id="miembros"></div>
 
@@ -117,7 +117,7 @@
     </div>
 </div>
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar", "Index","Ceremonias")
 </div>
 
 @section Scripts {

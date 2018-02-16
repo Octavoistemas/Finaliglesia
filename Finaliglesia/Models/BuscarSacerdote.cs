@@ -8,5 +8,6 @@ namespace Finaliglesia.Models
     public class BuscarSacerdote
     {
         public string BuscarCedula { get; set; }
+        public DateTime Fecha{ get; set; }
     }
 }

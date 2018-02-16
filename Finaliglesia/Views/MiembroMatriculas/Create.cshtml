@@ -7,42 +7,134 @@
 <h2>Crear</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>MiembroMatricula</h4>
+        <h4>MiembroCeremonia</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.MiembrosId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("matricula", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MiembrosId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MiembrosId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MatriculasId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MatriculasId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.MatriculasId, ViewData["matricula"] as SelectList, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MatriculasId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
-        </div>
+
     </div>
 }
+<form class="form-horizontal">
 
+    <div class="form-group">
+        @Html.Label("Cedula", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Cedula" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Nombre" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Apellido", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Apellido" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Direccion", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Direccion" required class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Telefono", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Telefono" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Celular", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Celular" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Fecha de Nacimiento", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Fecha" class="form-control datepicker" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Genero", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="cars" id="genero" class="form-control" required>
+                <option value=""></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Correo Electronico", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="email" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Rol", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select name="cars" id="Rol" class="form-control" required>
+                <option value=""></option>
+                <option value="Sacramentado">Sacramentado</option>
+                <option value="Padrino">Padrino</option>
+                <option value="Madrina">Madrina</option>
+                <option value="Padre">Padre</option>
+                <option value="Madre">Madre</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="button" id="agregar" value="Agregar" class="btn btn-primary form-control" />
+        </div>
+    </div>
+
+    <hr />
+</form>
+<div id="miembros"></div>
+
+
+
+<div class="form-group">
+    <div class="col-md-10">
+        <input type="submit" value="Guardar" id="enviar" class="btn btn-primary form-control centrarbt" />
+    </div>
+</div>
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar", "Index", "Ceremonias")
 </div>
 
 @section Scripts {
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="@Url.Content("~/Scripts/Listar.js")"></script>
+    <script src="@Url.Content("~/Scripts/FuncionMatricula.js")"></script>
+
+    <script>
+    $(".datepicker").datepicker({
+        format: 'yyyy/mm/dd',
+        autoclose: true,
+        lannguaje:'es'
+    });
+    </script>
+    <script>
+        $('#agregar').click(agregarmiembros_click);
+        $('#enviar').click(crear_Click);
+    </script>
 }

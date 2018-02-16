@@ -13,16 +13,19 @@ function agregarmiembros_click() {
      Telefono:$('#Telefono').val().trim(),
      genero: $('#genero').val().trim(),
      FechaNacimiento: $('#Fecha').val().trim(),
-     email: $('#email').val().trim()
+     email: $('#email').val().trim(),
+     Rol: $('#Rol').val().trim()
         });
-        $('#Telefono').val('').focus();
+        $('#Cedula').val('').focus();
         $('#Nombre').val('');
-        $('#Apellido').val('').focus();
-        $('#Nombre').val('');
-        $('#Telefono').val('').focus();
-        $('#Nombre').val('');
-        $('#Telefono').val('').focus();
-        $('#Nombre').val('');
+        $('#Apellido').val('');
+        $('#Direccion').val('');
+        $('#Celular').val('');
+        $('#Telefono').val('');
+        $('#genero').val('');
+        $('#Fecha').val('');
+        $('#email').val('');
+        $('#Rol').val('');
         
     //falta codigo para limpiar cajas
         MostrarMiembros(true);
@@ -33,11 +36,11 @@ function MostrarMiembros(editar) {
     if (miembrosItems.Total() > 0) {
         var $table = $('<table class="table table-bordered table-striped table-responsive"/>');
         if (editar){
-            $table.append('<thead><tr><th>Cedula</th><th>Nombre</th><th>Apellido</th><th>Direccion</th><th>Celular</th><th>Telefono</th><th>Genero</th><th>Fecha de Nacimiento</th><th>Apellido</th>Correo Electronico</tr></thead>')
+            $table.append('<thead><tr><th>Cedula</th><th>Nombre</th><th>Apellido</th><th>Direccion</th><th>Celular</th><th>Telefono</th><th>Genero</th><th>Fecha de Nacimiento</th><th>Correo electronico</th><th>Rol</th></tr></thead>')
         }
         else {
            
-            $table.append('<thead><tr><th>Cedula</th><th>Nombre</th><th>Apellido</th><th>Direccion</th><th>Celular</th><th>Telefono</th><th>Genero</th><th>Fecha de Nacimiento</th><th>Apellido</th>Correo Electronico</tr></thead>')
+            $table.append('<thead><tr><th>Cedula</th><th>Nombre</th><th>Apellido</th><th>Direccion</th><th>Celular</th><th>Telefono</th><th>Genero</th><th>Fecha de Nacimiento</th><th>Correo electronico</th><th>Rol</th></tr></thead>')
         }
         var $tbody = $('<tbody/>');
         for (var i = 0; i < miembrosItems.Total() ; i++) {
@@ -52,7 +55,7 @@ function MostrarMiembros(editar) {
             $row.append($('<td/>').html(miembrosItems.Item(i).genero));
             $row.append($('<td/>').html(miembrosItems.Item(i).FechaNacimiento));
             $row.append($('<td/>').html(miembrosItems.Item(i).email));
-            
+            $row.append($('<td/>').html(miembrosItems.Item(i).Rol));
             if (editar)
                 $row.append($('<td/>').html("<a href='#' class='btn btn-primary' data-toggle='tooltip' title='Eliminar' onClick='return EliminarMiembro(" + i + ");'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span>"));
             $tbody.append($row);
@@ -76,7 +79,6 @@ function crear_Click() {
    if (isAllValid) {
        var data = {
            MiemrboCeremoniaID: 0,
-           Rol: $('#Rol').val().trim(),
            CeremoniasId: $('#CeremoniasId').val().trim(),
            Miembros: miembrosItems.lista
        }

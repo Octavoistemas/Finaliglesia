@@ -30,7 +30,7 @@ namespace Finaliglesia.Controllers
             if (ModelState.IsValid)
             {
                 BusquedaSacerdoteModeloVista Cedula = new BusquedaSacerdoteModeloVista();
-                Cedula.SacerdoteConsultas(model.BuscarCedula);
+                Cedula.SacerdoteConsultas(model.BuscarCedula,model.Fecha);
                 return PartialView("_SacerdotesBuscar", Cedula.SacerdoteLista);
             }
             else

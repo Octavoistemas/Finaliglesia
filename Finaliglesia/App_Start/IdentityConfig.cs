@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Finaliglesia.Models;
+using System.Net.Mail;
 
 namespace Finaliglesia
 {
@@ -18,8 +19,30 @@ namespace Finaliglesia
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Conecte su servicio de correo electrónico aquí para enviar correo electrónico.
-            return Task.FromResult(0);
+            SmtpClient cliente = new SmtpClient("smtp.gmail.com");
+            //smpt para outlook, hotmail, live 
+            //smpt-mail.outlook.com
+            //587
+            cliente.Port = 587;
+            cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+            cliente.UseDefaultCredentials = true;
+            System.Net.NetworkCredential credenciales =
+                new System.Net.NetworkCredential("reylijaime@gmail.com", "reylijaime1993");
+            cliente.EnableSsl = true;
+            cliente.Credentials = credenciales;
+            try
+            {
+                var mail = new MailMessage("reylijaime@gmail.com", message.Destination.Trim());
+                mail.Subject = message.Subject;
+                mail.Body = message.Body;
+                cliente.Send(mail);
+                return Task.FromResult(0);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
     }
 

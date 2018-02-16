@@ -17,6 +17,7 @@ namespace Finaliglesia.Models
         public string genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string email { get; set; }
-       
+        public string Rol { get; set; }
+
     }
 }

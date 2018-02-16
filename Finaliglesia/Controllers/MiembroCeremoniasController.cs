@@ -73,20 +73,32 @@ namespace Finaliglesia.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Create(MiembroCeremonia miembroCeremonia)
         {
+
             if (ModelState.IsValid)
             {
-                db.MiembrosCeremonias.Add(miembroCeremonia);
-                db.SaveChanges();
+                //foreach (var item in miembroCeremonia.Miembros)
+                //{
+                //    var consulta = (from m in db.Miembros
+                //                    where m.Cedula.Contains(item.Cedula)
+                //                    select m.Cedula).FirstOrDefault();
+                //    if (consulta.ToString() != "")
+                //    {
+                //        ModelState.AddModelError("Cedula", "La cedula ya existe");
+                //    }
+                //}
 
+                db.MiembrosCeremonias.Add(miembroCeremonia);
+                    
+                    db.SaveChanges();
                
+
+
                 return Json(true);
             }
 
             return Json(false);
         }
        
-
-
         // GET: MiembroCeremonias/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -95,11 +107,11 @@ namespace Finaliglesia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             MiembroCeremonia miembroCeremonia = db.MiembrosCeremonias.Find(id);
-            var miembros = new SelectList(db.Miembros.ToList(), "MiembroID", "Nombre");
-            ViewData["miembro"] = miembros;
+            //var miembros = new SelectList(db.Miembros.ToList(), "MiembroID", "Nombre");
+            //ViewData["miembro"] = miembros;
 
-            var cere = new SelectList(db.Ceremonias.ToList(), "CeremoniaID");
-            ViewData["ceremo"] = cere;
+            //var cere = new SelectList(db.Ceremonias.ToList(), "CeremoniaID");
+            //ViewData["ceremo"] = cere;
             return View();
             if (miembroCeremonia == null)
             {
@@ -113,7 +125,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MiembroCeremoniaID,Rol,MiembrosId,CeremoniasId")] MiembroCeremonia miembroCeremonia)
+        public ActionResult Edit([Bind(Include = "MiembroCeremoniaID,MiembrosId,CeremoniasId")] MiembroCeremonia miembroCeremonia)
         {
             if (ModelState.IsValid)
             {

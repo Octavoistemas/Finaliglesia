@@ -34,9 +34,9 @@
                 @Html.DisplayFor(modelItem => item.Periodo)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Matriculas", new { id = item.MatriculaID }, null)
-                @Html.ActionLink("Detalles", "Index", "Matriculas", new { id = item.MatriculaID })
-                @Html.ActionLink("Eliminar", "Delete", "Matriculas", new { id = item.MatriculaID})
+                @Html.ActionLink("Agregar Participantes", "Create", "MiembroMatriculas", new { id = item.MatriculaID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Editar", "Edit", "Matriculas", new { id = item.MatriculaID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Eliminar", "Delete", "Matriculas", new { id = item.MatriculaID}, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

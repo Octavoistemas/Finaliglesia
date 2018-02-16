@@ -36,8 +36,20 @@ namespace Finaliglesia.Controllers
         }
 
         // GET: MiembroMatriculas/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            var matriculas = new SelectList(from m in db.Matriculas
+                                           join s in db.Sacramentos on m.SacramentosId equals s.SacramentoID
+                                           join p in db.Periodos on m.PeriodosId equals p.PeriodoID
+                                           join i in db.Iglesias on m.IglesiasId equals i.IglesiaID
+                                           where m.MatriculaID.Equals(id)
+                                           select new
+                                           {
+                                               MatriculaID = m.MatriculaID,
+                                               Dato = s.DetalleSacramento+"/"+p.Detalle+"/"+i.Nombre
+                                           }, "MatriculaID", "Dato");
+
+            ViewData["matricula"] = matriculas;
             return View();
         }
 
@@ -46,17 +58,42 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MiembroMatriculaID,MiembrosId,MatriculasId")] MiembroMatricula miembroMatricula)
+        public JsonResult Create(MiembroMatricula miembromatricula)
         {
+
             if (ModelState.IsValid)
             {
-                db.MiembrosMatriculas.Add(miembroMatricula);
+                //foreach (var item in miembroCeremonia.Miembros)
+                //{
+                //    var consulta = (from m in db.Miembros
+                //                    where m.Cedula.Contains(item.Cedula)
+                //                    select m.Cedula).FirstOrDefault();
+                //    if (consulta.ToString() != "")
+                //    {
+                //        ModelState.AddModelError("Cedula", "La cedula ya existe");
+                //    }
+                //}
+
+                db.MiembrosMatriculas.Add(miembromatricula);
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return Json(true);
             }
 
-            return View(miembroMatricula);
+            return Json(false);
         }
+        //public ActionResult Create([Bind(Include = "MiembroMatriculaID,MiembrosId,MatriculasId")] MiembroMatricula miembroMatricula)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.MiembrosMatriculas.Add(miembroMatricula);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(miembroMatricula);
+        //}
 
         // GET: MiembroMatriculas/Edit/5
         public ActionResult Edit(int? id)
@@ -78,7 +115,7 @@ namespace Finaliglesia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MiembroMatriculaID,MiembrosId,MatriculasId")] MiembroMatricula miembroMatricula)
+        public ActionResult Edit([Bind(Include = "MiembroMatriculaID,MatriculasId")] MiembroMatricula miembroMatricula)
         {
             if (ModelState.IsValid)
             {

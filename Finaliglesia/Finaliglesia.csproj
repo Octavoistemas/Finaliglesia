@@ -193,6 +193,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IndentityExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -203,23 +204,51 @@
     <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IglesiasController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="Controllers\MiembroCeremoniasController.cs" />
     <Compile Include="Controllers\MiembroMatriculasController.cs" />
     <Compile Include="Controllers\MiembrosController.cs" />
     <Compile Include="Controllers\PeriodosController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SacerdotesController.cs" />
     <Compile Include="Controllers\SacramentosController.cs" />
     <Compile Include="Controllers\TipoceremoniasController.cs" />
     <Compile Include="Controllers\TipoiglesiasController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="GestionIglesiaDataS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionIglesiaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201802092329275_Nose.cs" />
     <Compile Include="Migrations\201802092329275_Nose.Designer.cs">
       <DependentUpon>201802092329275_Nose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802142035561_Miembros.cs" />
+    <Compile Include="Migrations\201802142035561_Miembros.Designer.cs">
+      <DependentUpon>201802142035561_Miembros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802151803546_Matriculas.cs" />
+    <Compile Include="Migrations\201802151803546_Matriculas.Designer.cs">
+      <DependentUpon>201802151803546_Matriculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802160031533_Usuario.cs" />
+    <Compile Include="Migrations\201802160031533_Usuario.Designer.cs">
+      <DependentUpon>201802160031533_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802160111179_Usuariorol.cs" />
+    <Compile Include="Migrations\201802160111179_Usuariorol.Designer.cs">
+      <DependentUpon>201802160111179_Usuariorol.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,15 +316,40 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Scripts\FuncionesCliente.js" />
+    <Content Include="GestionIglesiaDataSet.xsc">
+      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="GestionIglesiaDataS.xsc">
+      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
+    </Content>
+    <None Include="GestionIglesiaDataS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionIglesiaDataS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="GestionIglesiaDataS.xss">
+      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
+    </Content>
+    <None Include="GestionIglesiaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionIglesiaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="GestionIglesiaDataSet.xss">
+      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Listar.js" />
     <Content Include="Scripts\Listas.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
@@ -378,6 +432,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\FuncionMatricula.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -524,6 +579,19 @@
     <EmbeddedResource Include="Migrations\201802092329275_Nose.resx">
       <DependentUpon>201802092329275_Nose.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802142035561_Miembros.resx">
+      <DependentUpon>201802142035561_Miembros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802151803546_Matriculas.resx">
+      <DependentUpon>201802151803546_Matriculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802160031533_Usuario.resx">
+      <DependentUpon>201802160031533_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802160111179_Usuariorol.resx">
+      <DependentUpon>201802160111179_Usuariorol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPTReport\Matriculas.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

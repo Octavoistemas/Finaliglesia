@@ -17,6 +17,7 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias
         public ActionResult Index()
         {
+
             return View(db.Ceremonias.ToList());
         }
         public ActionResult ListaCeremonias()
@@ -24,18 +25,26 @@ namespace Finaliglesia.Controllers
             CeremoniasVistaModelo lista = new CeremoniasVistaModelo();
             return PartialView("_ListaCeremonias", lista.Ceremonias().ToList());
         }
-        public JsonResult SacertodesDisponibles()
+        public JsonResult SacertodesDisponibles(DateTime fecha, string hora) //, string hora
         {
 
-            var SacerdotesId = (from c in db.Ceremonias
-                               join s in db.Sacerdotes on c.SacramentosId equals s.SacerdoteID
-                               where !c.SacerdotesId.Equals(s.SacerdoteID)
-                                select new
+            var SacerdotesId = from Sacerdotes in db.Sacerdotes
+                               where
+                                     (from Ceremonias in db.Ceremonias
+                                      where
+                                             Sacerdotes.SacerdoteID == Ceremonias.SacerdotesId &&
+                                             Ceremonias.Fecha == fecha &&
+                                             Ceremonias.Hora == hora
+                                      select new
+                                      {
+                                          Column1 = 1
+                                      }).FirstOrDefault() == null
+                               select new
                                {
-                                   Nombre = s.NombreSacerdote+""+s.ApellidoSacerdote,
-                                   SacerdoteId = s.SacerdoteID
-                               }).Distinct().ToList();
-            return Json(new SelectList(SacerdotesId, "SacerdoteID", "Nombre"));
+                                   Sacerdotes.SacerdoteID,
+                                   Nombre = Sacerdotes.NombreSacerdote+""+ Sacerdotes.ApellidoSacerdote
+                               };
+            return Json(new SelectList(SacerdotesId, "SacerdoteID", "Nombre"), JsonRequestBehavior.AllowGet);
         }
         // GET: Ceremonias/Details/5
         public ActionResult Details(int? id)
@@ -58,22 +67,30 @@ namespace Finaliglesia.Controllers
             var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
             var tipoceremonia = new SelectList(db.TipoCeremonias.ToList(), "TipoceremoniaID", "Detalle");
 
-            ViewBag.SacerdotesID = new SelectList(from s in db.Sacerdotes
-                                                  select new
-                                                  {
-                                                      Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote,
-                                                      s.SacerdoteID
-                                                  }
-                                       , "SacerdoteID", "Nombre");
             var horas = new SelectList(new[] {
                 new { ID="06:00", Name="06:00"},
                 new { ID="07:00", Name="07:00"},
                 new { ID="08:00", Name="08:00"},
                 new { ID="09:00", Name="09:00"},
                 new { ID="10:00", Name="10:00"},
-                new { ID="11:00", Name="11:00"}
+                new { ID="11:00", Name="11:00"},
+                new { ID="12:00", Name="12:00"},
+                new { ID="13:00", Name="13:00"},
+                new { ID="14:00", Name="14:00"},
+                new { ID="15:00", Name="15:00"},
+                new { ID="16:00", Name="16:00"},
+                new { ID="17:00", Name="17:00"},
+                new { ID="18:00", Name="18:00"},
+                new { ID="19:00", Name="09:00"},
+                new { ID="20:00", Name="20:00"},
+                new { ID="21:00", Name="21:00"},
+                new { ID="22:00", Name="22:00"},
+                new { ID="23:00", Name="23:00"},
+                new { ID="00:00", Name="00:00"}
             }, "ID", "Name");
             var sacra = new SelectList(from s in db.Sacramentos select s, "SacramentoID", "DetalleSacramento");
+            var sacer = new SelectList(from s in db.Sacerdotes select new { s.SacerdoteID, Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote }, "SacerdoteID", "Nombre");
+            ViewData["sacer"] = sacer;
             ViewData["Sacra"] = sacra;
             ViewData["Horas"] = horas;
             ViewData["iglesiass"] = iglesia;

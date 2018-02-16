@@ -16,6 +16,7 @@ namespace Finaliglesia.Controllers
     {
         public RolesAdminController()
         {
+            
         }
 
         public RolesAdminController(ApplicationUserManager userManager,

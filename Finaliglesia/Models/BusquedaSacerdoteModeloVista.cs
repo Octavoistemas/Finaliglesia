@@ -14,14 +14,25 @@ namespace Finaliglesia.Models
             SacerdoteLista = new List<BusquedaSacerdote>();
         }
         public List<BusquedaSacerdote> SacerdoteLista { get; set; }
-        public void SacerdoteConsultas(string Cedula)
+
+        //public void consulta()
+        //{
+        //    var con = from mc in db.MiembrosCeremonias
+        //              select new {
+        //                 Ceremosnia =(from c in mc.Ceremonias select c.TipoCeremoniasId),
+        //                 Miembros = (from m in mc.Miembros where )
+                                                                          
+        //                              ),
+        //              };
+        //}
+        public void SacerdoteConsultas(string Cedula, DateTime Fecha)
         {
             var consulta = from s in db.Sacerdotes
                            join c in db.Ceremonias on s.SacerdoteID equals c.SacerdotesId
                            join i in db.Iglesias on c.iglesiaid equals i.IglesiaID
                            join sc in db.Sacramentos on c.SacramentosId equals sc.SacramentoID
                            join tc in db.TipoCeremonias on c.TipoCeremoniasId equals tc.TipoceremoniaID
-                           where s.Cedula.Contains(Cedula)
+                           where s.Cedula.Contains(Cedula) && c.Fecha.Equals(Fecha)
 
                            select new
                            {
