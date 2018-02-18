@@ -176,7 +176,7 @@ namespace Finaliglesia.Controllers
                                join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MatriculasId
                                from mem in mm.Miembros
                                    // join mem in db.Miembros on mm.MiembrosId equals mem.MiembroID
-                               where mm.MatriculasId.Equals(id) && mem.MiembroID.Equals(idmm)
+                               where mm.MatriculasId.Equals(id) && mem.MiembroID.Equals(idmm) && mem.Rol == "Estudiante"
                                select new
                                {
                                    Periodo = p.Detalle,

@@ -104,7 +104,7 @@
                // here we are get value of selected country and passing same value
                 success: function (states) {
                     $.each(states, function (i, state) {
-                        $("#SacerdotesId").append('<option value="' + state.SacerdoteID + '">' + state.Text + '</option>');
+                        $("#SacerdotesId").append('<option value="' + state.Value + '">' + state.Text + '</option>');
                     // here we are adding option for States
                     });
                 },

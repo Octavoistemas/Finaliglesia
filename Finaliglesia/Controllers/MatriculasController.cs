@@ -21,6 +21,15 @@ namespace Finaliglesia.Controllers
         }
         public ActionResult BuscarMiembro()
         {
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            ViewData["igle"] = iglesia;
+
+
+            var car = new SelectList(db.Sacramentos.ToList(), "SacramentoID", "DetalleSacramento");
+            ViewData["sacra"] = car;
+
+            var perio = new SelectList(db.Periodos.ToList(), "PeriodoID", "Detalle");
+            ViewData["periodoss"] = perio;
             BuscarMiembro busca = new BuscarMiembro();
 
             return View(busca);
@@ -30,7 +39,7 @@ namespace Finaliglesia.Controllers
             if (ModelState.IsValid)
             {
                 BusquedaMiembroModeloVista datos = new BusquedaMiembroModeloVista();
-                datos.MiembroConsultas(model.idiglesia,model.idperiodo,model.idceremonia);
+                datos.MiembroConsultas(model.idiglesia, model.idperiodo, model.idsacramento);
                 return PartialView("_MiembroBuscar", datos.MiembroLista);
             }
             else

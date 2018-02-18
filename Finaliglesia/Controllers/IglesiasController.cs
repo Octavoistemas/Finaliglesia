@@ -197,9 +197,11 @@ namespace Finaliglesia.Controllers
                     consulta = (from m in db.Matriculas
                                 join p in db.Periodos on m.PeriodosId equals p.PeriodoID
                                 join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MatriculasId
-                                from mem in mm.Miembros
+                                
                                 //join mem in db.Miembros on mm.MiembrosId equals mem.MiembroID
                                 where m.MatriculaID.Equals(item.MatriculaID)
+                                from mem in mm.Miembros
+                                where mem.Rol == "Estudiante"
                                 select new
                                 {
                                     p.Detalle,

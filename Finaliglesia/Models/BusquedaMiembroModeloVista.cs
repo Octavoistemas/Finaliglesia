@@ -28,13 +28,13 @@ namespace Finaliglesia.Models
         public void MiembroConsultas(int idiglesia,int idperiodo,int idsacramento)
         {
             var consulta = from m in db.Matriculas
-                           join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MiembroMatriculaID
-                           where
-                             m.IglesiasId == idiglesia &&
-                             m.PeriodosId == idperiodo &&
-                             m.SacramentosId == idsacramento
+                           join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MatriculasId
                            from mb in mm.Miembros
-                           where mb.Rol == "Estudiante"
+                           where
+                             m.IglesiasId == idiglesia  &&
+                             m.PeriodosId == idperiodo &&
+                             m.SacramentosId == idsacramento &&
+                             mb.Rol == "Estudiante"
                            select new 
                            {
                                mb.Cedula,
