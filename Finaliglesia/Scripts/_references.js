@@ -92,5 +92,6 @@
 /// <reference path="locales/bootstrap-datepicker.zh-cn.min.js" />
 /// <reference path="locales/bootstrap-datepicker.zh-tw.min.js" />
 /// <reference path="locales/bootstrap-datepicker-en-ca.min.js" />
+/// <reference path="locales/prueba.js" />
 /// <reference path="modernizr-2.6.2.js" />
 /// <reference path="respond.js" />

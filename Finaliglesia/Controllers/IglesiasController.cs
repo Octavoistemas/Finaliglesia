@@ -125,5 +125,96 @@ namespace Finaliglesia.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+        public ActionResult Reporte()
+        {
+            return View(db.Iglesias.ToList());
+        }
+
+        public ActionResult ListadoIglesiasVista()
+        {
+            return View(db.Iglesias.ToList());
+        }
+
+        public JsonResult ListaIglesia()
+        {
+
+            return Json(db.Iglesias.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult MatriculaPorIglesia()
+        {
+
+            return View(db.Periodos.ToList());
+        }
+
+
+
+        public JsonResult BusquedaPorIglecia(int id)
+        {
+
+            var consulta = (from s in db.Sacerdotes
+                            join c in db.Ceremonias on s.SacerdoteID equals c.SacerdotesId
+                            join i in db.Iglesias on c.iglesiaid equals i.IglesiaID
+                            join sc in db.Sacramentos on c.SacramentosId equals sc.SacramentoID
+                            join tc in db.TipoCeremonias on c.TipoCeremoniasId equals tc.TipoceremoniaID
+                            where i.IglesiaID.Equals(id)
+                            select new
+                            {
+                                s.Cedula,
+                                s.NombreSacerdote,
+                                s.ApellidoSacerdote,
+                                c.Fecha,
+                                c.Hora,
+                                i.Nombre,
+                                sc.DetalleSacramento,
+                                tc.Detalle
+
+                            }).ToList();
+
+            return Json(consulta, JsonRequestBehavior.AllowGet);
+
+
+        }
+
+        public JsonResult BusquedaPorIgleciaMatricula(int id, int idc, int idp)
+        {
+
+            object consulta = null;
+
+            var consultaa = (from m in db.Matriculas
+                             where m.SacramentosId.Equals(idc) && m.IglesiasId.Equals(id) && m.PeriodosId.Equals(idp)
+                             select new
+                             {
+                                 m.MatriculaID
+                             }).ToList();
+
+            if (consultaa != null)
+            {
+                foreach (var item in consultaa)
+                {
+
+                    consulta = (from m in db.Matriculas
+                                join p in db.Periodos on m.PeriodosId equals p.PeriodoID
+                                join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MatriculasId
+                                from mem in mm.Miembros
+                                //join mem in db.Miembros on mm.MiembrosId equals mem.MiembroID
+                                where m.MatriculaID.Equals(item.MatriculaID)
+                                select new
+                                {
+                                    p.Detalle,
+                                    mem.Cedula,
+                                    mem.Nombre,
+                                    mem.Apellido,
+                                    mem.Direccion,
+                                    mem.Telefono
+                                }).ToList();
+                }
+            }
+
+
+            return Json(consulta, JsonRequestBehavior.AllowGet);
+        }
+    
+}
 }

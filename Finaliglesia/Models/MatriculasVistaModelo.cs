@@ -20,6 +20,7 @@ namespace Finaliglesia.Models
                            join c in db.Catequistas on m.CatequistasId equals c.CatequistaID
                            join s in db.Sacramentos on m.SacramentosId equals s.SacramentoID
                            join p in db.Periodos on m.PeriodosId equals p.PeriodoID
+                           orderby m.MatriculaID descending
                            select new MatriculasModelVista
                            {
                                MatriculaID=m.MatriculaID,

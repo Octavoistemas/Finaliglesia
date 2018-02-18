@@ -253,7 +253,10 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\BuscarMiembro.cs" />
     <Compile Include="Models\BuscarSacerdote.cs" />
+    <Compile Include="Models\BusquedaMiembroModeloVista.cs" />
+    <Compile Include="Models\BusquedaMiembros.cs" />
     <Compile Include="Models\BusquedaSacerdote.cs" />
     <Compile Include="Models\BusquedaSacerdoteModeloVista.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -278,7 +281,11 @@
     <Compile Include="Models\MatriculasVistaModelo.cs" />
     <Compile Include="Models\Miembro.cs" />
     <Compile Include="Models\MiembroCeremonia.cs" />
+    <Compile Include="Models\MiembroCeremoniaModeloVista.cs" />
+    <Compile Include="Models\MiembroCeremoniaVistaModelo.cs" />
     <Compile Include="Models\MiembroMatricula.cs" />
+    <Compile Include="Models\MiembroMatriculaModeloVista.cs" />
+    <Compile Include="Models\MiembroMatriculaVistaModelo.cs" />
     <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\Sacerdote.cs" />
     <Compile Include="Models\Sacramento.cs" />
@@ -433,6 +440,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Scripts\FuncionMatricula.js" />
+    <Content Include="Scripts\locales\prueba.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -563,6 +571,15 @@
     <Content Include="Views\Ceremonias\Index.cshtml" />
     <Content Include="Views\Sacerdotes\_SacerdotesBuscar.cshtml" />
     <Content Include="Views\Sacerdotes\Buscar.cshtml" />
+    <Content Include="Views\Shared\_ListaMiembrosCeremonia.cshtml" />
+    <Content Include="Views\Shared\_ListaMiembroMatricula.cshtml" />
+    <Content Include="Views\Matriculas\BuscarMiembro.cshtml" />
+    <Content Include="Views\Matriculas\_MiembroBuscar.cshtml" />
+    <Content Include="Views\Iglesias\ListadoIglesiasVista.cshtml" />
+    <Content Include="Views\Iglesias\MatriculaPorIglesia.cshtml" />
+    <Content Include="Views\Iglesias\reporte.cshtml" />
+    <Content Include="Views\Sacramentos\ListadoSacramentosVista.cshtml" />
+    <Content Include="Views\Shared\_LayoutReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -591,7 +608,6 @@
     <EmbeddedResource Include="Migrations\201802160111179_Usuariorol.resx">
       <DependentUpon>201802160111179_Usuariorol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RPTReport\Matriculas.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

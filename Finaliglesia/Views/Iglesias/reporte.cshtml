@@ -1,52 +1,31 @@
-﻿@model Finaliglesia.Models.MiembroMatricula
-
-@{
-    ViewBag.Title = "Detalles";
-}
-
-<!--h2>Detalles</!--h2>
-
-<div>
-    <h4>MiembroMatricula</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-           
-        </dt>
-
-        <dd id="idMiembro">
-          
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatriculasId)
-        </dt>
-
-        <dd id="idMatricula">
-            @Html.DisplayFor(model => model.MatriculasId)
-        </dd>
-
-    </dl>
-</div-->
-<br />
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.MiembroMatriculaID }) |
-    @Html.ActionLink("Regresar", "Index")
-</p>
+﻿@model IEnumerable<Finaliglesia.Models.Iglesia>
 
 <br />
 <br />
-<iframe id="pdf_preview" type="application/pdf" src="" width="800" height="400"></iframe>
-
-
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 <script>
-    $(document).ready(function () {
+    $( document ).ready(function() {
+        
 
+        $('#cbxIglecias').change(function () {
+            
+            var id = $(this).val();
+            $.ajax({
+                url: 'Iglesias/BusquedaPorIglecia/' + id,
+                type: "GET",
+                success: function (d) {
+                    pdf(d);
+                },
+                error: function (d) {
+                    alert('Error, intente nuevamente');
+                }
+            });
 
+        });
+        var id = $('#cbxIglecias').val()
         $.ajax({
-            url: '/Finaliglesia/MiembroMatriculas/BusquedaMatricula/'+@Html.DisplayFor(model => model.MatriculasId)+'?idmm='+@Html.DisplayFor(model => model.MiembroMatriculaID),
+            url: '/Iglesias/BusquedaPorIglecia/'+id,
             type: "GET",
             success: function (d) {
                 pdf(d);
@@ -55,6 +34,9 @@
                 alert('Error, intente nuevamente');
             }
         });
+
+
+        
 
         function pdf(data) {
 
@@ -66,74 +48,67 @@
             doc.addImage(imgData, 'JPEG', 15, 5, 280, 25)
 
             doc.setFontSize(25)
+            var nom = $('#cbxIglecias').find('option:selected').text();
+
+            doc.text(95, 45, 'Iglesia ' + '"' +nom+'"')
+
+            doc.setFontSize(14)
+            var pos = 55;
+            doc.text(15, pos, 'Sacerdote')
+            doc.text(100, pos, 'Sacramento')
+            doc.text(180, pos, 'Fecha')
+            doc.text(205, pos, 'Hora')
+            doc.text(225, pos, 'Ceremonia')
 
 
+            doc.setFontSize(11)
 
-
+            var page = 1;
+            //for (var i = 0; i < 100; i++) {
             $.each(data, function (index, element) {
-
-                doc.setLineWidth(1)
-                doc.line(15, 35, 280, 35)
-                doc.text(95, 45, 'Matricula #'+element.Numero)
-                doc.line(15, 50, 280, 50)
-                doc.setLineWidth(1)
-                doc.line(135, 50, 135, 180)
-                doc.line(15, 35, 15, 180)
-                doc.line(280, 35, 280, 180)
-
-                doc.line(15, 180, 280, 180)
-                doc.line(15, 65, 280, 65)
-
-                doc.setFontSize(14)
-
-                console.log(element)
-                doc.text(18, 60, 'Periodo: ')
-                doc.text(45, 60, element.Periodo)
-                doc.text(140, 60, 'Sacramento: ')
-                doc.text(180, 60, element.Sacramento)
-
+                if (page == 14) {
+                    doc.addPage()
+                    pos = 25;
+                    page = 1;
+                } else {
+                    page++;
+                }
                 pos = pos + 10;
-                var pos = 75;
-                doc.setFontType('bold')
-                doc.text(18, pos, 'Catequista')
-                doc.text(140, pos, 'Estudiante')
-
-                doc.setFontType('normal')
-                pos = pos + 10;
-                doc.text(18, pos, 'Cedula: ')
-                doc.text(35, pos, element.Cedula)
-
-                doc.text(140, pos, 'Cedula: ')
-                doc.text(160, pos, element.CedulaE)
-
-                pos = pos + 10;
-                doc.text(18, pos, 'Nombre: ')
-                doc.text(48, pos, element.NombreC)
-
-                doc.text(140, pos, 'Nombre: ')
-                doc.text(170, pos, element.NombreE)
-
-                pos = pos + 10;
-                doc.text(18, pos, 'Direccion: ')
-                doc.text(48, pos, element.DireccionC)
-
-                doc.text(140, pos, 'Direccion: ')
-                doc.text(170, pos, element.DireccionE)
-
-                pos = pos + 10;
-                doc.text(18, pos, 'Telefono: ')
-                doc.text(48, pos, element.TelefonoC)
-
-                doc.text(140, pos, 'Telefono: ')
-                doc.text(170, pos, element.TelefonoE)
-
-
+                doc.text(15, pos, element.NombreSacerdote + " " + element.ApellidoSacerdote);
+                doc.text(100, pos, element.DetalleSacramento);
+                doc.text(180, pos, parseJsonDate(element.Fecha));
+                doc.text(205, pos, element.Hora);
+                doc.text(225, pos, element.Detalle);
             });
+            //}
 
             $("#pdf_preview").attr("src", doc.output('datauristring'));
 
         }
 
+        function parseJsonDate(jsonDateString) {
+            var dateString = jsonDateString.substr(6);
+            var currentTime = new Date(parseInt(dateString));
+            var month = currentTime.getMonth() + 1;
+            var day = currentTime.getDate();
+            var year = currentTime.getFullYear();
+            var date = day + "/" + month + "/" + year;
+            return date;
+        }
+
     });
+
+   
 </script>
+<select id="cbxIglecias" class="selectpicker">
+    @foreach (var item in Model)
+    {
+        <option value="@Html.DisplayFor(modelItem => item.IglesiaID)">@Html.DisplayFor(modelItem => item.Nombre)</option>
+       
+    }
+</select>
+<br />
+<br />
+<iframe id="pdf_preview" type="application/pdf" src="" width="800" height="400"></iframe>
+
 

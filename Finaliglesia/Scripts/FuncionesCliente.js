@@ -91,7 +91,7 @@ function crear_Click() {
            data: { __RequestVerificationToken: token, miembroCeremonia: data },
            success: function (d) {
                if (d == true) {
-                   window.location.href = "/Ceremonias/Index";
+                   window.location.href = "/MiembroCeremonias/Index";
                } else {
                    alert('Hubo un error al momento de guardar');
                }

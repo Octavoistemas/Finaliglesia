@@ -19,7 +19,11 @@ namespace Finaliglesia.Controllers
         {
             return View(db.MiembrosMatriculas.ToList());
         }
-
+        public ActionResult ListaMiembrosMatricula()
+        {
+            MiembroMatriculaVistaModelo lista = new MiembroMatriculaVistaModelo();
+            return PartialView("_ListaMiembroMatricula", lista.MiembroMatriculas().ToList());
+        }
         // GET: MiembroMatriculas/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,6 +38,7 @@ namespace Finaliglesia.Controllers
             }
             return View(miembroMatricula);
         }
+
 
         // GET: MiembroMatriculas/Create
         public ActionResult Create(int id)
@@ -159,6 +164,38 @@ namespace Finaliglesia.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public JsonResult BusquedaMatricula(int id, int idmm)
+        {
+
+            object consulta = (from m in db.Matriculas
+                               join c in db.Catequistas on m.CatequistasId equals c.CatequistaID
+                               join s in db.Sacramentos on m.SacramentosId equals s.SacramentoID
+                               join p in db.Periodos on m.PeriodosId equals p.PeriodoID
+                               join mm in db.MiembrosMatriculas on m.MatriculaID equals mm.MatriculasId
+                               from mem in mm.Miembros
+                                   // join mem in db.Miembros on mm.MiembrosId equals mem.MiembroID
+                               where mm.MatriculasId.Equals(id) && mem.MiembroID.Equals(idmm)
+                               select new
+                               {
+                                   Periodo = p.Detalle,
+                                   CedulaE = mem.Cedula,
+                                   NombreE = mem.Nombre + " " + mem.Apellido,
+                                   DireccionE = mem.Direccion,
+                                   TelefonoE = mem.Telefono,
+                                   Sacramento = s.DetalleSacramento,
+                                   NombreC = c.Nombre + " " + c.Apellido,
+                                   Cedula = c.Cedula,
+                                   Numero = mm.MiembroMatriculaID,
+                                   TelefonoC = c.Telefono,
+                                   DireccionC = c.Direccion
+                               }).ToList();
+
+
+
+
+            return Json(consulta, JsonRequestBehavior.AllowGet);
         }
     }
 }

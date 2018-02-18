@@ -19,6 +19,28 @@ namespace Finaliglesia.Controllers
         {
             return View(db.Matriculas.ToList());
         }
+        public ActionResult BuscarMiembro()
+        {
+            BuscarMiembro busca = new BuscarMiembro();
+
+            return View(busca);
+        }
+        public ActionResult BuscaMiembro(BuscarMiembro model)
+        {
+            if (ModelState.IsValid)
+            {
+                BusquedaMiembroModeloVista datos = new BusquedaMiembroModeloVista();
+                datos.MiembroConsultas(model.idiglesia,model.idperiodo,model.idceremonia);
+                return PartialView("_MiembroBuscar", datos.MiembroLista);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return View("BuscarMiembro", model);
+            }
+
+
+        }
         public ActionResult ListaMatriculas()
         {
             MatriculasVistaModelo lista = new MatriculasVistaModelo();

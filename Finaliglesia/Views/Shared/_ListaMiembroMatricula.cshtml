@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Finaliglesia.Models.MiembroMatriculaModeloVista>
+
+<table class="table">
+    <tr>
+        <th>
+            Estudiante
+        </th>
+        <th>
+            Iglesia
+        </th>
+        <th>
+            Catequista
+        </th>
+        <th>
+            Sacramento
+        </th>
+        <th>
+            Periodo
+        </th>
+        <th>
+            Matricula
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catequista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacramento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+
+            <td>
+               <button class="btn btn-primary" id="btnMatricula_@Html.DisplayFor(modelItem=> item.idmatricula)@Html.DisplayFor(modelItem => item.idmiembro)">Matricula</button>
+            </td>
+
+        </tr>
+
+        <br />
+        <br />
+       
+
+        <script src = "/Scripts/locales/prueba.js" ></ script >
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+        <script>
+    $(document).ready(function () {
+
+        $( "#btnMatricula_"+@Html.DisplayFor(modelItem=> item.idmatricula)+@Html.DisplayFor(modelItem => item.idmiembro)).click(function() {
+            
+        
+
+        $.ajax({
+            url: '/MiembroMatriculas/BusquedaMatricula/'+@Html.DisplayFor(modelItem=> item.idmatricula)+'?idmm='+@Html.DisplayFor(modelItem => item.idmiembro),
+            type: "GET",
+            success: function (d) {
+                pdf(d);
+            },
+            error: function (d) {
+                alert('Error, intente nuevamente');
+            }
+        });
+
+        });
+
+    });
+        </script>
+
+    }
+
+</table>

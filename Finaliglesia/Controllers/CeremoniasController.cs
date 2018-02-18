@@ -41,8 +41,8 @@ namespace Finaliglesia.Controllers
                                       }).FirstOrDefault() == null
                                select new
                                {
-                                   Sacerdotes.SacerdoteID,
-                                   Nombre = Sacerdotes.NombreSacerdote+""+ Sacerdotes.ApellidoSacerdote
+                                   SacerdoteID = Sacerdotes.SacerdoteID,
+                                   Nombre = Sacerdotes.NombreSacerdote+" "+ Sacerdotes.ApellidoSacerdote
                                };
             return Json(new SelectList(SacerdotesId, "SacerdoteID", "Nombre"), JsonRequestBehavior.AllowGet);
         }
@@ -89,7 +89,7 @@ namespace Finaliglesia.Controllers
                 new { ID="00:00", Name="00:00"}
             }, "ID", "Name");
             var sacra = new SelectList(from s in db.Sacramentos select s, "SacramentoID", "DetalleSacramento");
-            var sacer = new SelectList(from s in db.Sacerdotes select new { s.SacerdoteID, Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote }, "SacerdoteID", "Nombre");
+            var sacer = new SelectList(from s in db.Sacerdotes select new { SacerdoteID = s.SacerdoteID, Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote }, "SacerdoteID", "Nombre");
             ViewData["sacer"] = sacer;
             ViewData["Sacra"] = sacra;
             ViewData["Horas"] = horas;
@@ -109,7 +109,6 @@ namespace Finaliglesia.Controllers
             {
                 db.Ceremonias.Add(ceremonia);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             return View(ceremonia);

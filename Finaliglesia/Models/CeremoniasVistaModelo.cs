@@ -20,6 +20,7 @@ namespace Finaliglesia.Models
                            join sc in db.Sacerdotes on c.SacerdotesId equals sc.SacerdoteID
                            join i in db.Iglesias on c.iglesiaid equals i.IglesiaID
                            join tc in db.TipoCeremonias on c.TipoCeremoniasId equals tc.TipoceremoniaID
+                           orderby c.CeremoniaID descending
                            select new CeremoniasModeloVista
                            {
                                CeremoniaID=c.CeremoniaID,

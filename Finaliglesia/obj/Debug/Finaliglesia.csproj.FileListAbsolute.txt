@@ -321,8 +321,6 @@ C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Miembros.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Matriculas.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\RdlCompile.cache
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\RdlCompile.compiled
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.pdb
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Usuario.resources

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Finaliglesia.Models.Sacramento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutReport.cshtml";
+}
+Sacramentos:
+<select id="cbxSacramento" class="selectpicker">
+    @foreach (var item in Model)
+            {
+        <option value="@Html.DisplayFor(modelItem => item.SacramentoID)">@Html.DisplayFor(modelItem => item.DetalleSacramento)</option>
+
+    }
+</select>
+

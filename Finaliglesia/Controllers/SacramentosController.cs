@@ -123,5 +123,16 @@ namespace Finaliglesia.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult ListadoSacramentos()
+        {
+            return Json(db.Sacramentos.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ListadoSacramentosVista()
+        {
+            return View(db.Sacramentos.ToList());
+        }
+
     }
 }

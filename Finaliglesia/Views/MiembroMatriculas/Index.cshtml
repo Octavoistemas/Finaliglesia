@@ -1,33 +1,26 @@
 ﻿@model IEnumerable<Finaliglesia.Models.MiembroMatricula>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Matriculas";
 }
 
-<h2>Index</h2>
+<h2> Matriculas</h2>
+<div>
+    <div class="form-group">
+        @Html.ActionLink("Crear Matriculas", "Create", "Matriculas",null, new { @class = "btn btn-primary" })
 
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MatriculasId)
-        </th>
-        <th></th>
-    </tr>
+        @Html.ActionLink("Lista de Matriculas", "Index", "Matriculas",null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+        <div id="MienCer"></div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MatriculasId)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.MiembroMatriculaID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.MiembroMatriculaID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.MiembroMatriculaID })
-        </td>
-    </tr>
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
 
-</table>
+            <script>
+                $(document).ready(
+                    $("#MienCer").load('/MiembroMatriculas/ListaMiembrosMatricula')
+                    );
+
+            </script>
+        }

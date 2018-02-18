@@ -13,6 +13,9 @@
     
     <div class="form-horizontal">
         @*<h4>Matricula</h4>*@
+        <div>
+            @Html.ActionLink("Matriculas Existentes", "Index", "Matriculas", null, new { @class = "btn btn-primary" })
+        </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -56,7 +59,7 @@
 }
 
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar", "Index","MiembroMatriculas")
 </div>
 
 @section Scripts {

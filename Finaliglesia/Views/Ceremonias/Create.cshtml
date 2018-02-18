@@ -6,12 +6,16 @@
 
 <h2> Crear Creremonia</h2>
 
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
       @*  <h4>Ceremonia</h4>*@
+        <div>
+            @Html.ActionLink("Ceremonias Existentes", "Index", "Ceremonias", null, new { @class = "btn btn-primary" })
+        </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -72,7 +76,7 @@
 } 
 
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar", "Index","MiembroCeremonias")
 </div>
 @section Scripts{
     @Scripts.Render("/bundles/jqueryval")
@@ -100,7 +104,7 @@
                // here we are get value of selected country and passing same value
                 success: function (states) {
                     $.each(states, function (i, state) {
-                        $("#SacerdotesId").append('<option value="' + state.Nombre + '">' + state.Text + '</option>');
+                        $("#SacerdotesId").append('<option value="' + state.SacerdoteID + '">' + state.Text + '</option>');
                     // here we are adding option for States
                     });
                 },

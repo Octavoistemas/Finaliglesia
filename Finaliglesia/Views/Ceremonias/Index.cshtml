@@ -4,12 +4,11 @@
     ViewBag.Title = "Ceremonias";
 }
 
-<h2>Index</h2>
+<h2>Lista de Cereminias</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+<div>
+    @Html.ActionLink("Regresar", "Index", "MiembroCeremonias")
+</div>
 <div id="ceremonias2"></div>
 
 @section Scripts {
@@ -17,7 +16,7 @@
 
     <script>
     $(document).ready(
-        $("#ceremonias2").load('/MiembroCeremonias/ListaCeremonias')
+        $("#ceremonias2").load('/Ceremonias/ListaCeremonias')
         );
 
     </script>

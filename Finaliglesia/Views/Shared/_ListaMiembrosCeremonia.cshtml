@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Finaliglesia.Models.MiembroCeremoniaModeloVista>
+
+<table class="table">
+    <tr>
+        <th>
+            Sacramento
+        </th>
+        <th>
+            Sacramentado
+        </th>
+        <th>
+            Tipo de Ceremonia
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Iglesia
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacramento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacramentado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipoceremonia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iglesia)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
