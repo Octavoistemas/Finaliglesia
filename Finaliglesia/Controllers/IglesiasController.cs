@@ -42,7 +42,11 @@ namespace Finaliglesia.Controllers
         {
             return View();
         }
-
+        public ActionResult ListaIglesias()
+        {
+            IglesiasVistaModelo lista = new IglesiasVistaModelo();
+            return PartialView("_ListaIglesias", lista.Iglesias().ToList());
+        }
         // POST: Iglesias/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
