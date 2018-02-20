@@ -14,8 +14,12 @@ namespace Finaliglesia.Models
     public class EditUserViewModel
     {
         public string Id { get; set; }
-
         [Required(AllowEmptyStrings = false)]
+        [Display(Name = "Cedula")]
+
+        public string Cedula { get; set; }
+        [Required(AllowEmptyStrings = false)]
+
         [Display(Name = "Nombre de Usuario")]
 
         public string UserName { get; set; }

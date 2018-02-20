@@ -90,7 +90,7 @@ namespace Finaliglesia.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { NombreCompleto = userViewModel.NombreCompleto, UserName = userViewModel.UserName, Email = userViewModel.Email };
+                var user = new ApplicationUser {  NombreCompleto = userViewModel.NombreCompleto, UserName = userViewModel.UserName, Email = userViewModel.Email };
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
 
                 //Add User to the selected Roles 

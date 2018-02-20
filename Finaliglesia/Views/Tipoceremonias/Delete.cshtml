@@ -1,12 +1,12 @@
 ﻿@model Finaliglesia.Models.Tipoceremonia
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+@*<h3>Are you sure you want to delete this?</h3>*@
 <div>
     <h4>Tipoceremonia</h4>
     <hr />
@@ -33,7 +33,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-primary form-control" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Regresar", "Index",null, new { @class = "btn btn-primary" })
         </div>
     }
 </div>

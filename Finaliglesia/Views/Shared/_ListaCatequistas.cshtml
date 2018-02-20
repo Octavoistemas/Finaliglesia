@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Iglesia)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Catequistas", new { id = item.CatequistaID }, null)
-                @Html.ActionLink("Detalles", "Index", "Catequistas", new { id = item.CatequistaID })
-                @Html.ActionLink("Eliminar", "Delete", "Catequistas", new { id = item.CatequistaID })
+                @Html.ActionLink("Editar", "Edit", "Catequistas", new { id = item.CatequistaID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detalles", "Index", "Catequistas", new { id = item.CatequistaID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Eliminar", "Delete", "Catequistas", new { id = item.CatequistaID }, new { @class = "btn btn-primary" })
             </td>
         </tr>
     }

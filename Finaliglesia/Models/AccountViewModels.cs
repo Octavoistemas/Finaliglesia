@@ -21,7 +21,9 @@ namespace Finaliglesia.Models
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
         public string ReturnUrl { get; set; }
         public bool RememberMe { get; set; }
-    }
+      //public int  { get; set; }
+
+}
 
     public class VerifyCodeViewModel
     {
@@ -64,9 +66,12 @@ namespace Finaliglesia.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Cedula")]
+        public string Cedula { get; set; }
+
+        [Required]
         [Display(Name = "Nombre Completo")]
         public string NombreCompleto { get; set; }
-
 
         [Required]
         [Display(Name = "Nombre de Usuario")]

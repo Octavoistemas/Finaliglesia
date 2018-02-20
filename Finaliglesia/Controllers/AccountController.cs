@@ -185,6 +185,7 @@ namespace Finaliglesia.Controllers
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
+
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]

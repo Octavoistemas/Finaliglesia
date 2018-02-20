@@ -64,35 +64,24 @@ namespace Finaliglesia.Controllers
         // GET: Ceremonias/Create
         public ActionResult Create()
         {
-            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            
             var tipoceremonia = new SelectList(db.TipoCeremonias.ToList(), "TipoceremoniaID", "Detalle");
-
-            var horas = new SelectList(new[] {
+            var horas = new SelectList(new[] 
+            {
                 new { ID="06:00", Name="06:00"},
                 new { ID="07:00", Name="07:00"},
                 new { ID="08:00", Name="08:00"},
                 new { ID="09:00", Name="09:00"},
                 new { ID="10:00", Name="10:00"},
-                new { ID="11:00", Name="11:00"},
-                new { ID="12:00", Name="12:00"},
-                new { ID="13:00", Name="13:00"},
-                new { ID="14:00", Name="14:00"},
-                new { ID="15:00", Name="15:00"},
-                new { ID="16:00", Name="16:00"},
-                new { ID="17:00", Name="17:00"},
-                new { ID="18:00", Name="18:00"},
-                new { ID="19:00", Name="09:00"},
-                new { ID="20:00", Name="20:00"},
-                new { ID="21:00", Name="21:00"},
-                new { ID="22:00", Name="22:00"},
-                new { ID="23:00", Name="23:00"},
-                new { ID="00:00", Name="00:00"}
+                new { ID="11:00", Name="11:00"}
             }, "ID", "Name");
+            ViewData["Horas"] = horas;
+
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
             var sacra = new SelectList(from s in db.Sacramentos select s, "SacramentoID", "DetalleSacramento");
             var sacer = new SelectList(from s in db.Sacerdotes select new { SacerdoteID = s.SacerdoteID, Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote }, "SacerdoteID", "Nombre");
             ViewData["sacer"] = sacer;
             ViewData["Sacra"] = sacra;
-            ViewData["Horas"] = horas;
             ViewData["iglesiass"] = iglesia;
             ViewData["tceremons"] = tipoceremonia;
             return View();
@@ -109,8 +98,27 @@ namespace Finaliglesia.Controllers
             {
                 db.Ceremonias.Add(ceremonia);
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
+            var tipoceremonia = new SelectList(db.TipoCeremonias.ToList(), "TipoceremoniaID", "Detalle");
+            var horas = new SelectList(new[]
+            {
+                new { ID="06:00", Name="06:00"},
+                new { ID="07:00", Name="07:00"},
+                new { ID="08:00", Name="08:00"},
+                new { ID="09:00", Name="09:00"},
+                new { ID="10:00", Name="10:00"},
+                new { ID="11:00", Name="11:00"}
+            }, "ID", "Name");
+            ViewData["Horas"] = horas;
 
+            var iglesia = new SelectList(db.Iglesias.ToList(), "IglesiaID", "Nombre");
+            var sacra = new SelectList(from s in db.Sacramentos select s, "SacramentoID", "DetalleSacramento");
+            var sacer = new SelectList(from s in db.Sacerdotes select new { SacerdoteID = s.SacerdoteID, Nombre = s.NombreSacerdote + " " + s.ApellidoSacerdote }, "SacerdoteID", "Nombre");
+            ViewData["sacer"] = sacer;
+            ViewData["Sacra"] = sacra;
+            ViewData["iglesiass"] = iglesia;
+            ViewData["tceremons"] = tipoceremonia;
             return View(ceremonia);
         }
 

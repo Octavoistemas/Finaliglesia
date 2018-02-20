@@ -20,14 +20,16 @@
                 UpdateTargetId = "cargadeajax",
                 LoadingElementId = "cargar",
                 InsertionMode = InsertionMode.Replace
-            }, new { @class = "form-control", role = "form" }))
+            }, new { @class = "control-label", role = "form" }))
                     {
-                        @*@Html.AntiForgeryToken()
-                        @Html.ValidationSummary("", new { @class = "text-danger" })*@
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
                         <div class="form-group">
                             <div class="form-group">
                                 @Html.Label("Iglesia", new { @class = "control-label" })
+                                <br />
                                 <div class="col-md-10">
+                                    
                                     @Html.DropDownListFor(t => t.idiglesia, ViewData["igle"] as SelectList, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(t => t.idperiodo, "", new { @class = "text-danger" })
                                 </div>

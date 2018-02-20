@@ -1,10 +1,10 @@
 ﻿@model Finaliglesia.Models.Iglesia
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Iglesia</h4>
@@ -38,6 +38,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IglesiaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IglesiaID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Regresar", "Index",null, new { @class = "btn btn-primary" })
 </p>

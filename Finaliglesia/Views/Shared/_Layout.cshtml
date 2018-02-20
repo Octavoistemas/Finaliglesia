@@ -32,6 +32,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>@Html.ActionLink("Nuevo", "Index", "MiembroCeremonias")</li>
+                                <li>@Html.ActionLink("Tipo", "Index", "TipoCeremonias")</li>
                                 <li>@Html.ActionLink("Sacramentos", "Index", "Sacramentos")</li>
                             </ul>
                         </li>
@@ -44,14 +45,14 @@
                                 Matriculas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("Nuevo", "Index", "Matriculas")</li>
+                                <li>@Html.ActionLink("Nuevo", "Index", "MiembroMatriculas")</li>
                                 <li>@Html.ActionLink("Lista", "Index", "MiembroMatriculas")</li>
                                 <li>@Html.ActionLink("Buscar", "BuscarMiembro", "Matriculas")</li>
                             </ul>
                         </li>
 
                     }
-                    @if (User.IsInRole("Admin") || User.IsInRole("Sacerdotes"))
+                    @if (User.IsInRole("Admin") || User.IsInRole("Sacerdote"))
                     {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
@@ -64,6 +65,7 @@
                                 <li>@Html.ActionLink("Nuevo", "Index", "Sacerdotes")</li>    
                                 }
                                 <li>@Html.ActionLink("Buscar", "Buscar", "Sacerdotes")</li>
+                                <li>@Html.ActionLink("Misas", "Buscar", "Sacerdotes")</li>
                             </ul>
                         </li>
                     }
@@ -91,6 +93,10 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     @Html.ActionLink("Nuevo", "Index", "Iglesias")
+
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Tipo", "Index", "TipoIglesias")
 
                                 </li>
                                 <li>

@@ -1,10 +1,10 @@
 ﻿@model Finaliglesia.Models.Tipoceremonia
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle";
 }
 
-<h2>Details</h2>
+<h2>Detalle</h2>
 
 <div>
     <h4>Tipoceremonia</h4>
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TipoceremoniaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.TipoceremoniaID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Regresar", "Index",null, new { @class = "btn btn-primary" })
 </p>

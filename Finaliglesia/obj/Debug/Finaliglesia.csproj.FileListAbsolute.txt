@@ -317,12 +317,8 @@ C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Nose.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Miembros.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Matriculas.resources
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.dll
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.pdb
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Usuario.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csprojResolveAssemblyReference.cache
-C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Usuariorol.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Cedulasacerdote.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache

@@ -230,25 +230,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802092329275_Nose.cs" />
-    <Compile Include="Migrations\201802092329275_Nose.Designer.cs">
-      <DependentUpon>201802092329275_Nose.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802142035561_Miembros.cs" />
-    <Compile Include="Migrations\201802142035561_Miembros.Designer.cs">
-      <DependentUpon>201802142035561_Miembros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802151803546_Matriculas.cs" />
-    <Compile Include="Migrations\201802151803546_Matriculas.Designer.cs">
-      <DependentUpon>201802151803546_Matriculas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802160031533_Usuario.cs" />
-    <Compile Include="Migrations\201802160031533_Usuario.Designer.cs">
-      <DependentUpon>201802160031533_Usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802160111179_Usuariorol.cs" />
-    <Compile Include="Migrations\201802160111179_Usuariorol.Designer.cs">
-      <DependentUpon>201802160111179_Usuariorol.cs</DependentUpon>
+    <Compile Include="Migrations\201802202111411_Cedulasacerdote.cs" />
+    <Compile Include="Migrations\201802202111411_Cedulasacerdote.Designer.cs">
+      <DependentUpon>201802202111411_Cedulasacerdote.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -593,20 +577,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802092329275_Nose.resx">
-      <DependentUpon>201802092329275_Nose.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802142035561_Miembros.resx">
-      <DependentUpon>201802142035561_Miembros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802151803546_Matriculas.resx">
-      <DependentUpon>201802151803546_Matriculas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802160031533_Usuario.resx">
-      <DependentUpon>201802160031533_Usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802160111179_Usuariorol.resx">
-      <DependentUpon>201802160111179_Usuariorol.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802202111411_Cedulasacerdote.resx">
+      <DependentUpon>201802202111411_Cedulasacerdote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

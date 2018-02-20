@@ -40,6 +40,8 @@ namespace Finaliglesia.Controllers
         // GET: Iglesias/Create
         public ActionResult Create()
         {
+            var tipo = new SelectList(from s in db.TipoIglesias select s, "TipoiglesiaID", "Detalle");
+            ViewData["tipo"] = tipo;
             return View();
         }
         public ActionResult ListaIglesias()
@@ -54,6 +56,7 @@ namespace Finaliglesia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IglesiaID,Nombre,Direccion,TipoIglesiasId")] Iglesia iglesia)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Iglesias.Add(iglesia);
@@ -67,6 +70,8 @@ namespace Finaliglesia.Controllers
         // GET: Iglesias/Edit/5
         public ActionResult Edit(int? id)
         {
+            var tipo = new SelectList(from s in db.TipoIglesias select s, "TipoiglesiaID", "Detalle");
+            ViewData["tipo"] = tipo;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

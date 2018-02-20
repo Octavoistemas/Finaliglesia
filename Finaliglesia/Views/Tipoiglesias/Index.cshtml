@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create",null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Detalle)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TipoiglesiaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TipoiglesiaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TipoiglesiaID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.TipoiglesiaID }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.TipoiglesiaID }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.TipoiglesiaID }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }
