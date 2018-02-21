@@ -90,7 +90,7 @@ namespace Finaliglesia.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {  NombreCompleto = userViewModel.NombreCompleto, UserName = userViewModel.UserName, Email = userViewModel.Email };
+                var user = new ApplicationUser { Cedula= userViewModel.Cedula, NombreCompleto = userViewModel.NombreCompleto, UserName = userViewModel.UserName, Email = userViewModel.Email };
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
 
                 //Add User to the selected Roles 
@@ -142,6 +142,7 @@ namespace Finaliglesia.Controllers
                 Email = user.Email,
                 UserName = user.UserName,
                 NombreCompleto = user.NombreCompleto,
+                Cedula=user.Cedula,
                 RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
                 {
                     Selected = userRoles.Contains(x.Name),
@@ -155,7 +156,7 @@ namespace Finaliglesia.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,UserName, NombreCompleto")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,UserName, NombreCompleto,Cedula")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -168,6 +169,7 @@ namespace Finaliglesia.Controllers
                 user.UserName = editUser.UserName;
                 user.Email = editUser.Email;
                 user.NombreCompleto = editUser.NombreCompleto;
+                user.Cedula = editUser.Cedula;
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
 
                 selectedRole = selectedRole ?? new string[] { };

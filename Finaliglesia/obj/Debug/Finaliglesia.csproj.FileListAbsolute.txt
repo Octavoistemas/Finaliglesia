@@ -322,3 +322,5 @@ C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csprojResolveAssemblyReference.cache
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Cedulasacerdote.resources
 C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.csproj.GenerateResource.Cache
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Cedulasacer.resources
+C:\Users\DIEGO\Documents\GitHub\Finaliglesia\Finaliglesia\obj\Debug\Finaliglesia.Migrations.Cedulas.resources

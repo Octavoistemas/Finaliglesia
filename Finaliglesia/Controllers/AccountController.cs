@@ -17,6 +17,7 @@ namespace Finaliglesia.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -68,6 +69,10 @@ namespace Finaliglesia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            datosIncioSession.UserName = model.UserName;
+            datosIncioSession.Password = model.Password;
+            datosIncioSession.RememberMe = model.RememberMe;
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -422,6 +427,18 @@ namespace Finaliglesia.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public JsonResult l()
+        {
+            var consultaa = (from u in db.Users
+                             where u.UserName == datosIncioSession.UserName
+                             select new
+                             {
+                                 u.Cedula
+                             }).ToList();
+
+            return Json(consultaa, JsonRequestBehavior.AllowGet);
         }
 
         #region Aplicaciones auxiliares

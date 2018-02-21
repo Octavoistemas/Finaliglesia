@@ -48,6 +48,21 @@ namespace Finaliglesia.Models
         public string Email { get; set; }
     }
 
+    public  static class datosIncioSession
+    {
+        [Required]
+        [Display(Name = "Nombre de Usuario")]
+        public static string UserName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
+        public static  string Password { get; set; }
+
+        [Display(Name = "¿Recordar cuenta?")]
+        public static bool RememberMe { get; set; }
+    }
+
     public class LoginViewModel
     {
         [Required]

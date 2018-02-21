@@ -217,22 +217,20 @@
     <Compile Include="Controllers\TipoceremoniasController.cs" />
     <Compile Include="Controllers\TipoiglesiasController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="GestionIglesiaDataS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionIglesiaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201802202111411_Cedulasacerdote.cs" />
     <Compile Include="Migrations\201802202111411_Cedulasacerdote.Designer.cs">
       <DependentUpon>201802202111411_Cedulasacerdote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802202201059_Cedulasacer.cs" />
+    <Compile Include="Migrations\201802202201059_Cedulasacer.Designer.cs">
+      <DependentUpon>201802202201059_Cedulasacer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802202205137_Cedulas.cs" />
+    <Compile Include="Migrations\201802202205137_Cedulas.Designer.cs">
+      <DependentUpon>201802202205137_Cedulas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,28 +305,6 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Scripts\FuncionesCliente.js" />
-    <Content Include="GestionIglesiaDataSet.xsc">
-      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
-    </Content>
-    <Content Include="GestionIglesiaDataS.xsc">
-      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
-    </Content>
-    <None Include="GestionIglesiaDataS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionIglesiaDataS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="GestionIglesiaDataS.xss">
-      <DependentUpon>GestionIglesiaDataS.xsd</DependentUpon>
-    </Content>
-    <None Include="GestionIglesiaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionIglesiaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="GestionIglesiaDataSet.xss">
-      <DependentUpon>GestionIglesiaDataSet.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -579,6 +555,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802202111411_Cedulasacerdote.resx">
       <DependentUpon>201802202111411_Cedulasacerdote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802202201059_Cedulasacer.resx">
+      <DependentUpon>201802202201059_Cedulasacer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802202205137_Cedulas.resx">
+      <DependentUpon>201802202205137_Cedulas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

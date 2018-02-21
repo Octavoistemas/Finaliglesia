@@ -9,6 +9,7 @@ namespace Finaliglesia.Models
     // Puede agregar datos del perfil del usuario agregando más propiedades a la clase ApplicationUser. Para más información, visite http://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
+        public string Cedula { get; set; }
         public string NombreCompleto { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -17,6 +18,7 @@ namespace Finaliglesia.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Agregar aquí notificaciones personalizadas de usuario
             userIdentity.AddClaim(new Claim("NombreCompleto", this.NombreCompleto));
+            userIdentity.AddClaim(new Claim("Cedula", this.Cedula));
             return userIdentity;
         }
     }
